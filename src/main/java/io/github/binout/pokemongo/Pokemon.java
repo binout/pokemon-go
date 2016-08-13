@@ -15,7 +15,9 @@
  */
 package io.github.binout.pokemongo;
 
-import java.util.List;
+import java.util.Map;
+
+import static java.util.Optional.ofNullable;
 
 public class Pokemon {
 
@@ -41,8 +43,13 @@ public class Pokemon {
         return hp;
     }
 
-    public List<IndividualValue> potentialIvs(int dust, boolean neverUpgraded) {
+    public Map<Double, IndividualValue> potentialIvsByLevel(int dust, boolean neverUpgraded) {
         return new IndividualCalculator().compute(this, dust, neverUpgraded);
+    }
+
+    public IndividualValue iv(double level, int dust, boolean neverUpgraded) {
+        return ofNullable(potentialIvsByLevel(dust, neverUpgraded).get(level))
+                .orElseThrow(IllegalArgumentException::new);
     }
 
 }

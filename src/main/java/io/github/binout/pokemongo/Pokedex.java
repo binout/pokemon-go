@@ -15,7 +15,6 @@
  */
 package io.github.binout.pokemongo;
 
-import com.fasterxml.jackson.databind.MappingIterator;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.IOException;
@@ -32,8 +31,7 @@ public class Pokedex {
 
     public Pokedex() {
         try {
-            ObjectMapper objectMapper = new ObjectMapper();
-            Pokemon[] pokemons = objectMapper.readValue(Thread.currentThread().getContextClassLoader().getResourceAsStream("pokedex.json"), Pokemon[].class);
+            Pokemon[] pokemons = new ObjectMapper().readValue(Thread.currentThread().getContextClassLoader().getResourceAsStream("pokedex.json"), Pokemon[].class);
             allById = Arrays.stream(pokemons).collect(Collectors.toMap(Pokemon::getId, Function.identity()));
         } catch (IOException e) {
             throw new UncheckedIOException(e);

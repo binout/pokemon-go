@@ -15,12 +15,129 @@
  */
 package io.github.binout.pokemongo;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import java.io.IOException;
+import java.io.UncheckedIOException;
+import java.math.BigDecimal;
+import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 class IndividualCalculator {
 
-    List<IndividualValue> compute(Pokemon pokemon, int dust, boolean neverUpgraded) {
-        return new ArrayList<>();
+    private final Pokedex pokedex;
+    private final Level[] levels;
+
+    IndividualCalculator() {
+        try {
+            pokedex = new Pokedex();
+            levels = new ObjectMapper().readValue(Thread.currentThread().getContextClassLoader().getResourceAsStream("levelUpData.json"), Level[].class);
+        } catch (IOException e) {
+            throw new UncheckedIOException(e);
+        }
+
+    }
+
+    Map<Double, IndividualValue> compute(Pokemon pokemon, int dust, boolean neverUpgraded) {
+        Map<Double, IndividualValue> ivs = new HashMap<>();
+        List<Level> potentialLevels = potentialLevels(dust, neverUpgraded);
+        List<HPIv> hpivs = hpivs(pokemon, potentialLevels);
+        for (HPIv hpiv : hpivs) {
+            int stamina = hpiv.stamina;
+            Level level = hpiv.level;
+            IntStream.range(0, 16).forEach(attack -> IntStream.range(0, 16)
+                    .filter(defense -> testCP(pokemon, attack, defense, stamina, level))
+                    .mapToObj(defense -> new IndividualValue(stamina, attack, defense))
+                    .forEach(iv -> ivs.put(convertLevel(level.level), iv)));
+        }
+        return ivs;
+    }
+
+    private Double convertLevel(int level) {
+        return new BigDecimal(level).divide(BigDecimal.valueOf(2)).doubleValue();
+    }
+
+    private List<HPIv> hpivs(Pokemon pokemon, List<Level> potentialLevels) {
+        List<HPIv> hpIvs = new ArrayList<>();
+        for (Level potentialLevel : potentialLevels) {
+            IntStream.range(0, 16)
+                    .filter(stamina -> testHP(pokemon, stamina, potentialLevel))
+                    .mapToObj(stamina -> new HPIv(potentialLevel, stamina))
+                    .forEach(hpIvs::add);
+        }
+        return hpIvs;
+    }
+
+    private boolean testHP(Pokemon pokemon, int stamina, Level level) {
+        double theoricHp = Math.floor((pokedex.getStaminaOf(pokemon.id()) + stamina) * level.cpScalar);
+        return pokemon.hp() ==  theoricHp;
+    }
+
+    private boolean testCP(Pokemon pokemon, int attackIV, int defenseIV, int staminaIV, Level level) {
+        int attackFactor = pokedex.getAttackOf(pokemon.id()) + attackIV;
+        double defenseFactor = Math.pow(pokedex.getDefenseOf(pokemon.id()) + defenseIV, 0.5);
+        double staminaFactor = Math.pow((pokedex.getStaminaOf(pokemon.id()) + staminaIV), 0.5);
+        double scalarFactor = Math.pow(level.cpScalar, 2);
+        double theoricCp = attackFactor * defenseFactor * staminaFactor * scalarFactor / 10;
+        return pokemon.cp() == Math.floor(theoricCp);
+    }
+
+    private List<Level> potentialLevels(int dust, boolean neverUpgraded) {
+        Stream<Level> potentialLevels = Arrays.stream(levels).filter(l -> l.dust == dust);
+        if (neverUpgraded) {
+            potentialLevels = potentialLevels.filter(l -> l.level % 2 == 0);
+        }
+        return potentialLevels.sorted(Comparator.comparing(Level::getDust).reversed()).collect(Collectors.toList());
+    }
+
+    private static class HPIv {
+        private final Level level;
+        private final int stamina;
+
+        private HPIv(Level level, int stamina) {
+            this.level = level;
+            this.stamina = stamina;
+        }
+    }
+
+    private static class Level {
+        private int level;
+        private int dust;
+        private int candy;
+        private double cpScalar;
+
+        public int getLevel() {
+            return level;
+        }
+
+        public void setLevel(int level) {
+            this.level = level;
+        }
+
+        public int getDust() {
+            return dust;
+        }
+
+        public void setDust(int dust) {
+            this.dust = dust;
+        }
+
+        public int getCandy() {
+            return candy;
+        }
+
+        public void setCandy(int candy) {
+            this.candy = candy;
+        }
+
+        public double getCpScalar() {
+            return cpScalar;
+        }
+
+        public void setCpScalar(double cpScalar) {
+            this.cpScalar = cpScalar;
+        }
     }
 }
