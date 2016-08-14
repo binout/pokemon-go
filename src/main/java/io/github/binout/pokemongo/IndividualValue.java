@@ -15,6 +15,8 @@
  */
 package io.github.binout.pokemongo;
 
+import java.math.BigDecimal;
+
 public class IndividualValue {
 
     private final int stamina;
@@ -37,5 +39,10 @@ public class IndividualValue {
 
     public int defense() {
         return defense;
+    }
+
+    public double perfectRate() {
+        int sum = stamina + defense + attack;
+        return new BigDecimal(sum).multiply(new BigDecimal(2.22)).doubleValue();
     }
 }

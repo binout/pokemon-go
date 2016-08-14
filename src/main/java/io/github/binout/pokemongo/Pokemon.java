@@ -43,12 +43,12 @@ public class Pokemon {
         return hp;
     }
 
-    public Map<Double, IndividualValue> potentialIvsByLevel(int dust, boolean neverUpgraded) {
-        return new IndividualCalculator().compute(this, dust, neverUpgraded);
+    public Map<Double, IndividualValue> potentialIvsByLevel(int dust) {
+        return new IndividualCalculator().compute(this, dust);
     }
 
-    public IndividualValue iv(double level, int dust, boolean neverUpgraded) {
-        return ofNullable(potentialIvsByLevel(dust, neverUpgraded).get(level))
+    public IndividualValue iv(double level, int dust) {
+        return ofNullable(potentialIvsByLevel(dust).get(level))
                 .orElseThrow(IllegalArgumentException::new);
     }
 

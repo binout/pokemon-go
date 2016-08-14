@@ -40,9 +40,9 @@ class IndividualCalculator {
 
     }
 
-    Map<Double, IndividualValue> compute(Pokemon pokemon, int dust, boolean neverUpgraded) {
+    Map<Double, IndividualValue> compute(Pokemon pokemon, int dust) {
         Map<Double, IndividualValue> ivs = new HashMap<>();
-        List<Level> potentialLevels = potentialLevels(dust, neverUpgraded);
+        List<Level> potentialLevels = potentialLevels(dust);
         List<HPIv> hpivs = hpivs(pokemon, potentialLevels);
         for (HPIv hpiv : hpivs) {
             int stamina = hpiv.stamina;
@@ -56,7 +56,7 @@ class IndividualCalculator {
     }
 
     private Double convertLevel(int level) {
-        return new BigDecimal(level).divide(BigDecimal.valueOf(2)).doubleValue();
+        return new BigDecimal(level).divide(BigDecimal.valueOf(2)).add(new BigDecimal(0.5)).doubleValue();
     }
 
     private List<HPIv> hpivs(Pokemon pokemon, List<Level> potentialLevels) {
@@ -76,20 +76,21 @@ class IndividualCalculator {
     }
 
     private boolean testCP(Pokemon pokemon, int attackIV, int defenseIV, int staminaIV, Level level) {
-        int attackFactor = pokedex.getAttackOf(pokemon.id()) + attackIV;
+        double attackFactor = pokedex.getAttackOf(pokemon.id()) + attackIV;
         double defenseFactor = Math.pow(pokedex.getDefenseOf(pokemon.id()) + defenseIV, 0.5);
         double staminaFactor = Math.pow((pokedex.getStaminaOf(pokemon.id()) + staminaIV), 0.5);
         double scalarFactor = Math.pow(level.cpScalar, 2);
-        double theoricCp = attackFactor * defenseFactor * staminaFactor * scalarFactor / 10;
+        double theoricCp = new BigDecimal(attackFactor)
+                .multiply(new BigDecimal(defenseFactor))
+                        .multiply(new BigDecimal(staminaFactor))
+                                .multiply(new BigDecimal(scalarFactor))
+                                        .divide(new BigDecimal(10)).doubleValue();
         return pokemon.cp() == Math.floor(theoricCp);
     }
 
-    private List<Level> potentialLevels(int dust, boolean neverUpgraded) {
+    private List<Level> potentialLevels(int dust) {
         Stream<Level> potentialLevels = Arrays.stream(levels).filter(l -> l.dust == dust);
-        if (neverUpgraded) {
-            potentialLevels = potentialLevels.filter(l -> l.level % 2 == 0);
-        }
-        return potentialLevels.sorted(Comparator.comparing(Level::getDust).reversed()).collect(Collectors.toList());
+        return potentialLevels.sorted(Comparator.comparing(Level::getLevel).reversed()).collect(Collectors.toList());
     }
 
     private static class HPIv {
