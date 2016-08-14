@@ -16,6 +16,7 @@
 package io.github.binout.pokemongo;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 public class IndividualValue {
 
@@ -43,6 +44,6 @@ public class IndividualValue {
 
     public double perfectRate() {
         int sum = stamina + defense + attack;
-        return new BigDecimal(sum).multiply(new BigDecimal(2.22)).doubleValue();
+        return new BigDecimal(sum).multiply(new BigDecimal(2.22)).setScale(2, RoundingMode.HALF_UP).doubleValue();
     }
 }

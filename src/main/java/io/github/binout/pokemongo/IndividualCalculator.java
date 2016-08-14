@@ -25,6 +25,10 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
+/**
+ * Inspired by :
+ * https://github.com/andromedado/pokemon-go-iv-calculator
+ */
 class IndividualCalculator {
 
     private final Pokedex pokedex;
@@ -50,13 +54,9 @@ class IndividualCalculator {
             IntStream.range(0, 16).forEach(attack -> IntStream.range(0, 16)
                     .filter(defense -> testCP(pokemon, attack, defense, stamina, level))
                     .mapToObj(defense -> new IndividualValue(stamina, attack, defense))
-                    .forEach(iv -> ivs.put(convertLevel(level.level), iv)));
+                    .forEach(iv -> ivs.put(level.level, iv)));
         }
         return ivs;
-    }
-
-    private Double convertLevel(int level) {
-        return new BigDecimal(level).divide(BigDecimal.valueOf(2)).add(new BigDecimal(0.5)).doubleValue();
     }
 
     private List<HPIv> hpivs(Pokemon pokemon, List<Level> potentialLevels) {
@@ -85,7 +85,7 @@ class IndividualCalculator {
                         .multiply(new BigDecimal(staminaFactor))
                                 .multiply(new BigDecimal(scalarFactor))
                                         .divide(new BigDecimal(10)).doubleValue();
-        return pokemon.cp() == Math.floor(theoricCp);
+        return pokemon.cp() == (int)theoricCp;
     }
 
     private List<Level> potentialLevels(int dust) {
@@ -104,16 +104,16 @@ class IndividualCalculator {
     }
 
     private static class Level {
-        private int level;
+        private double level;
         private int dust;
         private int candy;
         private double cpScalar;
 
-        public int getLevel() {
+        public double getLevel() {
             return level;
         }
 
-        public void setLevel(int level) {
+        public void setLevel(double level) {
             this.level = level;
         }
 
