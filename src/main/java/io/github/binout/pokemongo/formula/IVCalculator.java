@@ -1,5 +1,5 @@
 /*
- * Copyright 2015 Benoît Prioux
+ * Copyright 2016 Benoît Prioux
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,6 +16,7 @@
 package io.github.binout.pokemongo.formula;
 
 import io.github.binout.pokemongo.IndividualValue;
+import io.github.binout.pokemongo.IndividualValues;
 import io.github.binout.pokemongo.Pokedex;
 import io.github.binout.pokemongo.Pokemon;
 
@@ -42,16 +43,16 @@ public class IVCalculator {
         this.levels = LevelData.all();
     }
 
-    public Map<Double, IndividualValue> compute(Pokemon pokemon, int dust) {
-        Map<Double, IndividualValue> ivs = new TreeMap<>();
+    public Map<Double, IndividualValues> compute(Pokemon pokemon, int dust) {
+        Map<Double, IndividualValues> ivs = new TreeMap<>();
         List<LevelData> potentialLevels = potentialLevels(dust);
         List<HPIv> hpivs = hpivs(pokemon, potentialLevels);
         for (HPIv hpiv : hpivs) {
-            int stamina = hpiv.stamina;
+            IndividualValue stamina = hpiv.stamina;
             LevelData level = hpiv.level;
-            IntStream.range(0, 16).forEach(attack -> IntStream.range(0, 16)
+            IndividualValue.range().forEach(attack -> IndividualValue.range()
                     .filter(defense -> testCP(pokemon, attack, defense, stamina, level))
-                    .mapToObj(defense -> new IndividualValue(stamina, attack, defense))
+                    .map(defense -> new IndividualValues(stamina, attack, defense))
                     .forEach(iv -> ivs.put(level.getLevel(), iv)));
         }
         return ivs;
@@ -60,20 +61,20 @@ public class IVCalculator {
     private List<HPIv> hpivs(Pokemon pokemon, List<LevelData> potentialLevels) {
         List<HPIv> hpIvs = new ArrayList<>();
         for (LevelData potentialLevel : potentialLevels) {
-            IntStream.range(0, 16)
+            IndividualValue.range()
                     .filter(stamina -> testHP(pokemon, stamina, potentialLevel))
-                    .mapToObj(stamina -> new HPIv(potentialLevel, stamina))
+                    .map(stamina -> new HPIv(potentialLevel, stamina))
                     .forEach(hpIvs::add);
         }
         return hpIvs;
     }
 
-    private boolean testHP(Pokemon pokemon, int stamina, LevelData level) {
+    private boolean testHP(Pokemon pokemon, IndividualValue stamina, LevelData level) {
         double theoricHp = hpCalculator.compute(pokemon, stamina, level.getCpScalar());
         return pokemon.hp() ==  theoricHp;
     }
 
-    private boolean testCP(Pokemon pokemon, int attackIV, int defenseIV, int staminaIV, LevelData level) {
+    private boolean testCP(Pokemon pokemon, IndividualValue attackIV, IndividualValue defenseIV, IndividualValue staminaIV, LevelData level) {
         double theoricCp = cpCalculator.compute(pokemon, staminaIV, attackIV, defenseIV, level.getCpScalar());
         return pokemon.cp() == (int)theoricCp;
     }
@@ -85,9 +86,9 @@ public class IVCalculator {
 
     private static class HPIv {
         private final LevelData level;
-        private final int stamina;
+        private final IndividualValue stamina;
 
-        private HPIv(LevelData level, int stamina) {
+        private HPIv(LevelData level, IndividualValue stamina) {
             this.level = level;
             this.stamina = stamina;
         }

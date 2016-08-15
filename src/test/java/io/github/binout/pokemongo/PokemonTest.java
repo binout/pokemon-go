@@ -25,7 +25,7 @@ public class PokemonTest {
 
     @Test
     public void should_compute_ivs_for_evoli() {
-        Map<Double, IndividualValue> potentialIvs = new Pokemon(133, 335, 55).potentialIvsByLevel(1300);
+        Map<Double, IndividualValues> potentialIvs = new Pokemon(133, 335, 55).potentialIvsByLevel(1300);
         assertThat(potentialIvs).hasSize(4);
 
         assertIv(potentialIvs.get(11.0), 15, 12, 15);
@@ -34,7 +34,7 @@ public class PokemonTest {
         assertIv(potentialIvs.get(12.5), 8, 1, 8);
     }
 
-    private void assertIv(IndividualValue iv, int attack, int defense, int stamina) {
+    private void assertIv(IndividualValues iv, int attack, int defense, int stamina) {
         assertThat(iv.attack()).isEqualTo(attack);
         assertThat(iv.defense()).isEqualTo(defense);
         assertThat(iv.stamina()).isEqualTo(stamina);

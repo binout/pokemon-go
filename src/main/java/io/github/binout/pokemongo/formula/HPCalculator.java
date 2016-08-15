@@ -15,6 +15,7 @@
  */
 package io.github.binout.pokemongo.formula;
 
+import io.github.binout.pokemongo.IndividualValue;
 import io.github.binout.pokemongo.Pokedex;
 import io.github.binout.pokemongo.Pokemon;
 
@@ -26,7 +27,11 @@ public class HPCalculator {
         this.pokedex = pokedex;
     }
 
-    public double compute(Pokemon pokemon, int staminaIV, double cpScalar) {
-        return Math.floor((pokedex.getStaminaOf(pokemon.id()) + staminaIV) * cpScalar);
+    public double compute(Pokemon pokemon, IndividualValue staminaIV, double cpScalar) {
+        return Math.floor((pokedex.getStaminaOf(pokemon.id()) + staminaIV.value()) * cpScalar);
+    }
+
+    public double computeMax(Pokemon pokemon) {
+        return compute(pokemon, IndividualValue.max(), LevelData.maxScalar());
     }
 }

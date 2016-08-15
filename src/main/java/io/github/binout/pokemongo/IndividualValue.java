@@ -1,5 +1,5 @@
 /*
- * Copyright 2015 Benoît Prioux
+ * Copyright 2016 Benoît Prioux
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,35 +15,32 @@
  */
 package io.github.binout.pokemongo;
 
-import java.math.BigDecimal;
-import java.math.RoundingMode;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 public class IndividualValue {
 
-    private final int stamina;
-    private final int attack;
-    private final int defense;
+    private static final int MAX_IV = 15;
+    private static final int MIN_IV = 0;
 
-    public IndividualValue(int stamina, int attack, int defense) {
-        this.stamina = stamina;
-        this.attack = attack;
-        this.defense = defense;
+    private final int value;
+
+    public IndividualValue(int value) {
+        if (value<MIN_IV || value>MAX_IV) {
+            throw new IllegalArgumentException();
+        }
+        this.value = value;
     }
 
-    public int stamina() {
-        return stamina;
+    public int value() {
+        return value;
     }
 
-    public int attack() {
-        return attack;
+    public static Stream<IndividualValue> range() {
+        return IntStream.range(MIN_IV, MAX_IV+1).mapToObj(IndividualValue::new);
     }
 
-    public int defense() {
-        return defense;
-    }
-
-    public double perfectRate() {
-        int sum = stamina + defense + attack;
-        return new BigDecimal(sum).multiply(new BigDecimal(2.22)).setScale(2, RoundingMode.HALF_UP).doubleValue();
+    public static IndividualValue max() {
+        return new IndividualValue(MAX_IV);
     }
 }

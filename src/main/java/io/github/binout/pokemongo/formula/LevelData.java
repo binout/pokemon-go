@@ -19,6 +19,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.IOException;
 import java.io.UncheckedIOException;
+import java.util.Arrays;
+import java.util.Comparator;
 
 class LevelData {
 
@@ -33,6 +35,10 @@ class LevelData {
             }
         }
         return ALL;
+    }
+
+    static double maxScalar() {
+        return Arrays.stream(all()).max(Comparator.comparing(LevelData::getLevel)).map(LevelData::getCpScalar).orElseThrow(RuntimeException::new);
     }
 
     private double level;

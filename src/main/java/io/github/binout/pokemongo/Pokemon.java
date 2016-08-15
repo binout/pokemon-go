@@ -1,5 +1,5 @@
 /*
- * Copyright 2015 Benoît Prioux
+ * Copyright 2016 Benoît Prioux
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,6 +16,7 @@
 package io.github.binout.pokemongo;
 
 import io.github.binout.pokemongo.formula.CPCalculator;
+import io.github.binout.pokemongo.formula.HPCalculator;
 import io.github.binout.pokemongo.formula.IVCalculator;
 
 import java.util.Map;
@@ -46,17 +47,21 @@ public class Pokemon {
         return hp;
     }
 
-    public Map<Double, IndividualValue> potentialIvsByLevel(int dust) {
+    public Map<Double, IndividualValues> potentialIvsByLevel(int dust) {
         return new IVCalculator(Pokedex.get()).compute(this, dust);
     }
 
-    public IndividualValue iv(double level, int dust) {
+    public IndividualValues iv(double level, int dust) {
         return ofNullable(potentialIvsByLevel(dust).get(level))
                 .orElseThrow(IllegalArgumentException::new);
     }
 
     public int maxCp() {
-        return (int) new CPCalculator(Pokedex.get()).computePerfect(this);
+        return (int) new CPCalculator(Pokedex.get()).computeMax(this);
+    }
+
+    public int maxHp() {
+        return (int) new HPCalculator(Pokedex.get()).computeMax(this);
     }
 
 }

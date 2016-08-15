@@ -1,5 +1,5 @@
 /*
- * Copyright 2015 Benoît Prioux
+ * Copyright 2016 Benoît Prioux
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,10 +25,11 @@ public class Main {
         int hp = 79;
         int dust = 2200;
         Pokemon pokemon = new Pokemon(pokemonId, cp, hp);
-        Map<Double, IndividualValue> potentialIvs = pokemon.potentialIvsByLevel(dust);
+        Map<Double, IndividualValues> potentialIvs = pokemon.potentialIvsByLevel(dust);
         potentialIvs.forEach((level,iv) -> System.out.println(
                 "Level : " + level
                         + ", MaxCP : " + pokemon.maxCp()
+                        + ", MaxHP : " + pokemon.maxHp()
                         + ", Stamina : " + iv.stamina()
                         + ", Attack : " + iv.attack()
                         + ", Defense : " + iv.defense()

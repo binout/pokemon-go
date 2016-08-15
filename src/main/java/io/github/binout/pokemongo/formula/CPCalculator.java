@@ -15,10 +15,13 @@
  */
 package io.github.binout.pokemongo.formula;
 
+import io.github.binout.pokemongo.IndividualValue;
 import io.github.binout.pokemongo.Pokedex;
 import io.github.binout.pokemongo.Pokemon;
 
 import java.math.BigDecimal;
+
+import static io.github.binout.pokemongo.IndividualValue.max;
 
 public class CPCalculator {
 
@@ -28,13 +31,13 @@ public class CPCalculator {
         this.pokedex = pokedex;
     }
 
-    public double compute(Pokemon pokemon, int staminaIV, int attackIV, int defenseIV, double cpScalar) {
+    public double compute(Pokemon pokemon, IndividualValue staminaIV, IndividualValue attackIV, IndividualValue defenseIV, double cpScalar) {
         int baseAttack = pokedex.getAttackOf(pokemon.id());
         int baseDefense = pokedex.getDefenseOf(pokemon.id());
         int baseStamina = pokedex.getStaminaOf(pokemon.id());
-        double attackFactor = baseAttack + attackIV;
-        double defenseFactor = Math.pow(baseDefense + defenseIV, 0.5);
-        double staminaFactor = Math.pow((baseStamina + staminaIV), 0.5);
+        double attackFactor = baseAttack + attackIV.value();
+        double defenseFactor = Math.pow(baseDefense + defenseIV.value(), 0.5);
+        double staminaFactor = Math.pow((baseStamina + staminaIV.value()), 0.5);
         double scalarFactor = Math.pow(cpScalar, 2);
         return new BigDecimal(attackFactor)
                 .multiply(new BigDecimal(defenseFactor))
@@ -43,7 +46,7 @@ public class CPCalculator {
                 .divide(new BigDecimal(10)).doubleValue();
     }
 
-    public double computePerfect(Pokemon pokemon) {
-        return compute(pokemon, 15, 15, 15, 0.7903001);
+    public double computeMax(Pokemon pokemon) {
+        return compute(pokemon, max(), max(), max(), LevelData.maxScalar());
     }
 }
