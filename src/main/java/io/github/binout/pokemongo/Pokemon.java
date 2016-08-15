@@ -47,7 +47,7 @@ public class Pokemon {
     }
 
     public Map<Double, IndividualValue> potentialIvsByLevel(int dust) {
-        return new IVCalculator(new Pokedex()).compute(this, dust);
+        return new IVCalculator(Pokedex.get()).compute(this, dust);
     }
 
     public IndividualValue iv(double level, int dust) {
@@ -56,7 +56,7 @@ public class Pokemon {
     }
 
     public int maxCp() {
-        return (int) new CPCalculator(new Pokedex()).computePerfect(this);
+        return (int) new CPCalculator(Pokedex.get()).computePerfect(this);
     }
 
 }

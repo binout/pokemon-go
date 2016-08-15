@@ -27,9 +27,18 @@ import java.util.stream.Collectors;
 
 public class Pokedex {
 
+    private static Pokedex INSTANCE;
+
+    public static Pokedex get() {
+        if (INSTANCE == null) {
+            INSTANCE = new Pokedex();
+        }
+        return INSTANCE;
+    }
+
     private final Map<Integer, Pokemon> allById;
 
-    public Pokedex() {
+    private Pokedex() {
         try {
             Pokemon[] pokemons = new ObjectMapper().readValue(Thread.currentThread().getContextClassLoader().getResourceAsStream("pokedex.json"), Pokemon[].class);
             allById = Arrays.stream(pokemons).collect(Collectors.toMap(Pokemon::getId, Function.identity()));

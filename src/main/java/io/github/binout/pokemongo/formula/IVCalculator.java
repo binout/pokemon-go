@@ -15,13 +15,10 @@
  */
 package io.github.binout.pokemongo.formula;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import io.github.binout.pokemongo.IndividualValue;
 import io.github.binout.pokemongo.Pokedex;
 import io.github.binout.pokemongo.Pokemon;
 
-import java.io.IOException;
-import java.io.UncheckedIOException;
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -34,39 +31,35 @@ import java.util.stream.Stream;
 public class IVCalculator {
 
     private final Pokedex pokedex;
-    private final Level[] levels;
+    private final LevelData[] levels;
     private final CPCalculator cpCalculator;
     private final HPCalculator hpCalculator;
 
     public IVCalculator(Pokedex pokedex) {
-        try {
-            this.pokedex = pokedex;
-            this.cpCalculator = new CPCalculator(pokedex);
-            this.hpCalculator = new HPCalculator(pokedex);
-            this.levels = new ObjectMapper().readValue(Thread.currentThread().getContextClassLoader().getResourceAsStream("levelUpData.json"), Level[].class);
-        } catch (IOException e) {
-            throw new UncheckedIOException(e);
-        }
+        this.pokedex = pokedex;
+        this.cpCalculator = new CPCalculator(pokedex);
+        this.hpCalculator = new HPCalculator(pokedex);
+        this.levels = LevelData.all();
     }
 
     public Map<Double, IndividualValue> compute(Pokemon pokemon, int dust) {
         Map<Double, IndividualValue> ivs = new TreeMap<>();
-        List<Level> potentialLevels = potentialLevels(dust);
+        List<LevelData> potentialLevels = potentialLevels(dust);
         List<HPIv> hpivs = hpivs(pokemon, potentialLevels);
         for (HPIv hpiv : hpivs) {
             int stamina = hpiv.stamina;
-            Level level = hpiv.level;
+            LevelData level = hpiv.level;
             IntStream.range(0, 16).forEach(attack -> IntStream.range(0, 16)
                     .filter(defense -> testCP(pokemon, attack, defense, stamina, level))
                     .mapToObj(defense -> new IndividualValue(stamina, attack, defense))
-                    .forEach(iv -> ivs.put(level.level, iv)));
+                    .forEach(iv -> ivs.put(level.getLevel(), iv)));
         }
         return ivs;
     }
 
-    private List<HPIv> hpivs(Pokemon pokemon, List<Level> potentialLevels) {
+    private List<HPIv> hpivs(Pokemon pokemon, List<LevelData> potentialLevels) {
         List<HPIv> hpIvs = new ArrayList<>();
-        for (Level potentialLevel : potentialLevels) {
+        for (LevelData potentialLevel : potentialLevels) {
             IntStream.range(0, 16)
                     .filter(stamina -> testHP(pokemon, stamina, potentialLevel))
                     .mapToObj(stamina -> new HPIv(potentialLevel, stamina))
@@ -75,67 +68,29 @@ public class IVCalculator {
         return hpIvs;
     }
 
-    private boolean testHP(Pokemon pokemon, int stamina, Level level) {
-        double theoricHp = hpCalculator.compute(pokemon, stamina, level.cpScalar);
+    private boolean testHP(Pokemon pokemon, int stamina, LevelData level) {
+        double theoricHp = hpCalculator.compute(pokemon, stamina, level.getCpScalar());
         return pokemon.hp() ==  theoricHp;
     }
 
-    private boolean testCP(Pokemon pokemon, int attackIV, int defenseIV, int staminaIV, Level level) {
-        double theoricCp = cpCalculator.compute(pokemon, staminaIV, attackIV, defenseIV, level.cpScalar);
+    private boolean testCP(Pokemon pokemon, int attackIV, int defenseIV, int staminaIV, LevelData level) {
+        double theoricCp = cpCalculator.compute(pokemon, staminaIV, attackIV, defenseIV, level.getCpScalar());
         return pokemon.cp() == (int)theoricCp;
     }
 
-    private List<Level> potentialLevels(int dust) {
-        Stream<Level> potentialLevels = Arrays.stream(levels).filter(l -> l.dust == dust);
-        return potentialLevels.sorted(Comparator.comparing(Level::getLevel).reversed()).collect(Collectors.toList());
+    private List<LevelData> potentialLevels(int dust) {
+        Stream<LevelData> potentialLevels = Arrays.stream(levels).filter(l -> l.getDust() == dust);
+        return potentialLevels.sorted(Comparator.comparing(LevelData::getLevel).reversed()).collect(Collectors.toList());
     }
 
     private static class HPIv {
-        private final Level level;
+        private final LevelData level;
         private final int stamina;
 
-        private HPIv(Level level, int stamina) {
+        private HPIv(LevelData level, int stamina) {
             this.level = level;
             this.stamina = stamina;
         }
     }
 
-    private static class Level {
-        private double level;
-        private int dust;
-        private int candy;
-        private double cpScalar;
-
-        public double getLevel() {
-            return level;
-        }
-
-        public void setLevel(double level) {
-            this.level = level;
-        }
-
-        public int getDust() {
-            return dust;
-        }
-
-        public void setDust(int dust) {
-            this.dust = dust;
-        }
-
-        public int getCandy() {
-            return candy;
-        }
-
-        public void setCandy(int candy) {
-            this.candy = candy;
-        }
-
-        public double getCpScalar() {
-            return cpScalar;
-        }
-
-        public void setCpScalar(double cpScalar) {
-            this.cpScalar = cpScalar;
-        }
-    }
 }

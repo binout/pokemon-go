@@ -1,12 +1,10 @@
 package io.github.binout.pokemongo;
 
-import org.assertj.core.api.Assertions;
 import org.testng.annotations.Test;
 
 import java.util.stream.IntStream;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.testng.Assert.*;
 
 /*
  * Copyright 2015 Benoît Prioux
@@ -27,12 +25,12 @@ public class PokedexTest {
 
     @Test
     public void can_load_pokedex() {
-        assertThat(new Pokedex().count()).isEqualTo(151);
+        assertThat(Pokedex.get().count()).isEqualTo(151);
     }
 
     @Test
     public void can_load_all_information() {
-        Pokedex pokedex = new Pokedex();
+        Pokedex pokedex = Pokedex.get();
         IntStream.range(1, pokedex.count()).forEach(id -> {
             assertThat(pokedex.getNameOf(id)).isNotNull();
             assertThat(pokedex.getAttackOf(id)).isNotNull();
