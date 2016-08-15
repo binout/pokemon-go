@@ -20,13 +20,15 @@ import java.util.Map;
 public class Main {
 
     public static void main(String[] args) {
-        int pokemon = 126;
-        int cp = 684;
-        int hp = 59;
-        int dust = 1300;
-        Map<Double, IndividualValue> potentialIvs = new Pokemon(pokemon, cp, hp).potentialIvsByLevel(dust);
+        int pokemonId = 22;
+        int cp = 831;
+        int hp = 79;
+        int dust = 2200;
+        Pokemon pokemon = new Pokemon(pokemonId, cp, hp);
+        Map<Double, IndividualValue> potentialIvs = pokemon.potentialIvsByLevel(dust);
         potentialIvs.forEach((level,iv) -> System.out.println(
                 "Level : " + level
+                        + ", MaxCP : " + pokemon.maxCp()
                         + ", Stamina : " + iv.stamina()
                         + ", Attack : " + iv.attack()
                         + ", Defense : " + iv.defense()

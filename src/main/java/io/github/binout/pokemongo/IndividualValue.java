@@ -24,7 +24,7 @@ public class IndividualValue {
     private final int attack;
     private final int defense;
 
-    IndividualValue(int stamina, int attack, int defense) {
+    public IndividualValue(int stamina, int attack, int defense) {
         this.stamina = stamina;
         this.attack = attack;
         this.defense = defense;

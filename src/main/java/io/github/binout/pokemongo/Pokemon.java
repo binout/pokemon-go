@@ -15,6 +15,9 @@
  */
 package io.github.binout.pokemongo;
 
+import io.github.binout.pokemongo.formula.CPCalculator;
+import io.github.binout.pokemongo.formula.IVCalculator;
+
 import java.util.Map;
 
 import static java.util.Optional.ofNullable;
@@ -44,12 +47,16 @@ public class Pokemon {
     }
 
     public Map<Double, IndividualValue> potentialIvsByLevel(int dust) {
-        return new IndividualCalculator().compute(this, dust);
+        return new IVCalculator(new Pokedex()).compute(this, dust);
     }
 
     public IndividualValue iv(double level, int dust) {
         return ofNullable(potentialIvsByLevel(dust).get(level))
                 .orElseThrow(IllegalArgumentException::new);
+    }
+
+    public int maxCp() {
+        return (int) new CPCalculator(new Pokedex()).computePerfect(this);
     }
 
 }

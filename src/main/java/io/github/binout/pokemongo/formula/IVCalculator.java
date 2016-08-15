@@ -13,13 +13,15 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.github.binout.pokemongo;
+package io.github.binout.pokemongo.formula;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import io.github.binout.pokemongo.IndividualValue;
+import io.github.binout.pokemongo.Pokedex;
+import io.github.binout.pokemongo.Pokemon;
 
 import java.io.IOException;
 import java.io.UncheckedIOException;
-import java.math.BigDecimal;
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -29,23 +31,26 @@ import java.util.stream.Stream;
  * Inspired by :
  * https://github.com/andromedado/pokemon-go-iv-calculator
  */
-class IndividualCalculator {
+public class IVCalculator {
 
     private final Pokedex pokedex;
     private final Level[] levels;
+    private final CPCalculator cpCalculator;
+    private final HPCalculator hpCalculator;
 
-    IndividualCalculator() {
+    public IVCalculator(Pokedex pokedex) {
         try {
-            pokedex = new Pokedex();
-            levels = new ObjectMapper().readValue(Thread.currentThread().getContextClassLoader().getResourceAsStream("levelUpData.json"), Level[].class);
+            this.pokedex = pokedex;
+            this.cpCalculator = new CPCalculator(pokedex);
+            this.hpCalculator = new HPCalculator(pokedex);
+            this.levels = new ObjectMapper().readValue(Thread.currentThread().getContextClassLoader().getResourceAsStream("levelUpData.json"), Level[].class);
         } catch (IOException e) {
             throw new UncheckedIOException(e);
         }
-
     }
 
-    Map<Double, IndividualValue> compute(Pokemon pokemon, int dust) {
-        Map<Double, IndividualValue> ivs = new HashMap<>();
+    public Map<Double, IndividualValue> compute(Pokemon pokemon, int dust) {
+        Map<Double, IndividualValue> ivs = new TreeMap<>();
         List<Level> potentialLevels = potentialLevels(dust);
         List<HPIv> hpivs = hpivs(pokemon, potentialLevels);
         for (HPIv hpiv : hpivs) {
@@ -71,20 +76,12 @@ class IndividualCalculator {
     }
 
     private boolean testHP(Pokemon pokemon, int stamina, Level level) {
-        double theoricHp = Math.floor((pokedex.getStaminaOf(pokemon.id()) + stamina) * level.cpScalar);
+        double theoricHp = hpCalculator.compute(pokemon, stamina, level.cpScalar);
         return pokemon.hp() ==  theoricHp;
     }
 
     private boolean testCP(Pokemon pokemon, int attackIV, int defenseIV, int staminaIV, Level level) {
-        double attackFactor = pokedex.getAttackOf(pokemon.id()) + attackIV;
-        double defenseFactor = Math.pow(pokedex.getDefenseOf(pokemon.id()) + defenseIV, 0.5);
-        double staminaFactor = Math.pow((pokedex.getStaminaOf(pokemon.id()) + staminaIV), 0.5);
-        double scalarFactor = Math.pow(level.cpScalar, 2);
-        double theoricCp = new BigDecimal(attackFactor)
-                .multiply(new BigDecimal(defenseFactor))
-                        .multiply(new BigDecimal(staminaFactor))
-                                .multiply(new BigDecimal(scalarFactor))
-                                        .divide(new BigDecimal(10)).doubleValue();
+        double theoricCp = cpCalculator.compute(pokemon, staminaIV, attackIV, defenseIV, level.cpScalar);
         return pokemon.cp() == (int)theoricCp;
     }
 

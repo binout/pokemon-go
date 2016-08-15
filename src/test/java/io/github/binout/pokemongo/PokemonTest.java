@@ -28,10 +28,10 @@ public class PokemonTest {
         Map<Double, IndividualValue> potentialIvs = new Pokemon(133, 335, 55).potentialIvsByLevel(1300);
         assertThat(potentialIvs).hasSize(4);
 
-        assertIv(potentialIvs.get(10.5), 15, 12, 15);
-        assertIv(potentialIvs.get(11.0), 13, 7, 13);
-        assertIv(potentialIvs.get(11.5), 12, 0, 11);
-        assertIv(potentialIvs.get(12.0), 8, 1, 8);
+        assertIv(potentialIvs.get(11.0), 15, 12, 15);
+        assertIv(potentialIvs.get(11.5), 13, 7, 13);
+        assertIv(potentialIvs.get(12.0), 12, 0, 11);
+        assertIv(potentialIvs.get(12.5), 8, 1, 8);
     }
 
     private void assertIv(IndividualValue iv, int attack, int defense, int stamina) {
