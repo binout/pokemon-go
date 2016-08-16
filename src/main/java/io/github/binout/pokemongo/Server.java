@@ -65,7 +65,7 @@ public class Server {
         private String name;
         private int maxCp;
         private int maxHp;
-        private List<RestIv> ivs;
+        private List<RestIv> ivs = new ArrayList<>();
 
         public String getName() {
             return name;
@@ -92,9 +92,6 @@ public class Server {
         }
 
         public void addIv(RestIv restIv) {
-            if (ivs == null) {
-                ivs = new ArrayList<>();
-            }
             ivs.add(restIv);
         }
 
