@@ -50,12 +50,29 @@ const Application = React.createClass({
         );
     },
 
+    renderSnap() {
+        let snap;
+        if (this.state.rate.id < 10) {
+            snap = 'pokemon-snaps/00' + this.state.rate.id + '.png'
+        } else  if (this.state.rate.id < 100) {
+            snap = 'pokemon-snaps/0' + this.state.rate.id + '.png'
+        } else {
+            snap = 'pokemon-snaps/' + this.state.rate.id + '.png'
+        }
+        return (
+            <img src={snap} width="80px" height="80px"/>
+        );
+    },
+
     renderRate() {
         if (this.state.rate.id) {
             return (
                 <Panel header={this.state.rate.name}>
-                    <h4><Label>CP</Label> {this.state.rate.cp}/{this.state.rate.maxCp}
-                    &nbsp;<Label>HP</Label> {this.state.rate.hp}/{this.state.rate.maxHp}</h4>
+                    <h4>
+                        {this.renderSnap()}
+                        <Label>CP</Label> {this.state.rate.cp}/{this.state.rate.maxCp}&nbsp;
+                        <Label>HP</Label> {this.state.rate.hp}/{this.state.rate.maxHp}
+                    </h4>
 
                     <Table striped bordered condensed>
                         <thead>
