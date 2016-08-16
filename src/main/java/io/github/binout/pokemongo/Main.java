@@ -15,7 +15,6 @@
  */
 package io.github.binout.pokemongo;
 
-import io.github.binout.pokemongo.domain.Pokedex;
 import io.github.binout.pokemongo.domain.Pokemon;
 import io.github.binout.pokemongo.domain.PokemonRate;
 
@@ -29,10 +28,10 @@ public class Main {
         Pokemon pokemon = new Pokemon(pokemonId, cp, hp);
         PokemonRate pokemonRate = new PokemonRate(pokemon, dust);
         pokemonRate.ivsByLevel().forEach((level, iv) -> System.out.println(
-                "Name : " + Pokedex.get().getNameOf(pokemonId)
-                        + ", Level : " + level
+                "Name : " + pokemon.name()
                         + ", MaxCP : " + pokemon.maxCp()
                         + ", MaxHP : " + pokemon.maxHp()
+                        + ", Level : " + level
                         + ", Stamina : " + iv.stamina()
                         + ", Attack : " + iv.attack()
                         + ", Defense : " + iv.defense()

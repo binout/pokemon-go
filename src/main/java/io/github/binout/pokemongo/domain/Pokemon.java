@@ -47,6 +47,10 @@ public class Pokemon {
         return hp;
     }
 
+    public String name() {
+        return Pokedex.get().getNameOf(id);
+    }
+
     public Map<Double, IndividualValues> potentialIvsByLevel(int dust) {
         return new IVCalculator(Pokedex.get()).compute(this, dust);
     }
