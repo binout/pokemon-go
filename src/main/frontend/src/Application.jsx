@@ -61,13 +61,13 @@ const Application = React.createClass({
     },
 
     renderSnap() {
-        let snap;
+        let snap = 'pokemon-snaps/';
         if (this.state.rate.id < 10) {
-            snap = 'pokemon-snaps/00' + this.state.rate.id + '.png'
+            snap = snap + '00' + this.state.rate.id + '.png'
         } else  if (this.state.rate.id < 100) {
-            snap = 'pokemon-snaps/0' + this.state.rate.id + '.png'
+            snap = snap + '0' + this.state.rate.id + '.png'
         } else {
-            snap = 'pokemon-snaps/' + this.state.rate.id + '.png'
+            snap = snap + this.state.rate.id + '.png'
         }
         return (
             <img src={snap} width="80px" height="80px"/>
@@ -122,9 +122,9 @@ const Application = React.createClass({
 
                 <form ref="form" onSubmit={this.handleSubmit}>
                     {this.renderSelect()}
-                    &nbsp;CP <input type="text" ref="inputCp" />
-                    &nbsp;HP <input type="text" ref="inputHp" />
-                    &nbsp;Dust <input type="text" ref="inputDust" />
+                    &nbsp;CP <input type="number" min="10" max="5000" required="true" ref="inputCp" />
+                    &nbsp;HP <input type="number" min="1" max="500" required="true" ref="inputHp" />
+                    &nbsp;Dust <input type="number" min="200" max="10000" step="100" required="true" ref="inputDust" />
                     &nbsp;<Button bsStyle="primary" bsSize="small" onClick={this.handleSubmit}>Rate Pokemon !</Button>
                 </form>
                 <hr/>
