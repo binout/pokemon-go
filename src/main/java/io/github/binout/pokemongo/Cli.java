@@ -18,7 +18,7 @@ package io.github.binout.pokemongo;
 import io.github.binout.pokemongo.domain.Pokemon;
 import io.github.binout.pokemongo.domain.PokemonRate;
 
-public class Main {
+public class Cli {
 
     public static void main(String[] args) {
         int pokemonId = 22;

@@ -1,7 +1,5 @@
 package io.github.binout.pokemongo.domain;
 
-import io.github.binout.pokemongo.domain.IndividualValues;
-import io.github.binout.pokemongo.domain.Pokemon;
 import org.testng.annotations.Test;
 
 import java.util.Map;
