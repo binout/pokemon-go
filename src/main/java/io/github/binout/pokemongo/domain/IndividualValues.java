@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.github.binout.pokemongo;
+package io.github.binout.pokemongo.domain;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;

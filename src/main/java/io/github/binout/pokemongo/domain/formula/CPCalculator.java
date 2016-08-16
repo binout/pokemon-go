@@ -13,15 +13,15 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.github.binout.pokemongo.formula;
+package io.github.binout.pokemongo.domain.formula;
 
-import io.github.binout.pokemongo.IndividualValue;
-import io.github.binout.pokemongo.Pokedex;
-import io.github.binout.pokemongo.Pokemon;
+import io.github.binout.pokemongo.domain.IndividualValue;
+import io.github.binout.pokemongo.domain.Pokedex;
+import io.github.binout.pokemongo.domain.Pokemon;
 
 import java.math.BigDecimal;
 
-import static io.github.binout.pokemongo.IndividualValue.max;
+import static io.github.binout.pokemongo.domain.IndividualValue.max;
 
 public class CPCalculator {
 

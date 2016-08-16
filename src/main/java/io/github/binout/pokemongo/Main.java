@@ -15,7 +15,9 @@
  */
 package io.github.binout.pokemongo;
 
-import java.util.Map;
+import io.github.binout.pokemongo.domain.Pokedex;
+import io.github.binout.pokemongo.domain.Pokemon;
+import io.github.binout.pokemongo.domain.PokemonRate;
 
 public class Main {
 
@@ -25,9 +27,10 @@ public class Main {
         int hp = 79;
         int dust = 2200;
         Pokemon pokemon = new Pokemon(pokemonId, cp, hp);
-        Map<Double, IndividualValues> potentialIvs = pokemon.potentialIvsByLevel(dust);
-        potentialIvs.forEach((level,iv) -> System.out.println(
-                "Level : " + level
+        PokemonRate pokemonRate = new PokemonRate(pokemon, dust);
+        pokemonRate.ivsByLevel().forEach((level, iv) -> System.out.println(
+                "Name : " + Pokedex.get().getNameOf(pokemonId)
+                        + ", Level : " + level
                         + ", MaxCP : " + pokemon.maxCp()
                         + ", MaxHP : " + pokemon.maxHp()
                         + ", Stamina : " + iv.stamina()

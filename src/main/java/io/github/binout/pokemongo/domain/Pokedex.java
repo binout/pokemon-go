@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.github.binout.pokemongo;
+package io.github.binout.pokemongo.domain;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -24,6 +24,8 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.function.Function;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 public class Pokedex {
 
@@ -45,6 +47,10 @@ public class Pokedex {
         } catch (IOException e) {
             throw new UncheckedIOException(e);
         }
+    }
+
+    public IntStream allIds() {
+        return allById.keySet().stream().mapToInt(i -> i);
     }
 
     public int count() {

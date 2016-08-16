@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.github.binout.pokemongo.formula;
+package io.github.binout.pokemongo.domain.formula;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 

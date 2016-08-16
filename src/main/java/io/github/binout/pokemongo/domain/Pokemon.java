@@ -13,11 +13,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.github.binout.pokemongo;
+package io.github.binout.pokemongo.domain;
 
-import io.github.binout.pokemongo.formula.CPCalculator;
-import io.github.binout.pokemongo.formula.HPCalculator;
-import io.github.binout.pokemongo.formula.IVCalculator;
+import io.github.binout.pokemongo.domain.formula.CPCalculator;
+import io.github.binout.pokemongo.domain.formula.HPCalculator;
+import io.github.binout.pokemongo.domain.formula.IVCalculator;
 
 import java.util.Map;
 

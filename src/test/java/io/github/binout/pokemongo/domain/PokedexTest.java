@@ -1,5 +1,6 @@
-package io.github.binout.pokemongo;
+package io.github.binout.pokemongo.domain;
 
+import io.github.binout.pokemongo.domain.Pokedex;
 import org.testng.annotations.Test;
 
 import java.util.stream.IntStream;
