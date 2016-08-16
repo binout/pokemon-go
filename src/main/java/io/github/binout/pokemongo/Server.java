@@ -16,6 +16,7 @@
 package io.github.binout.pokemongo;
 
 import io.github.binout.pokemongo.domain.IndividualValues;
+import io.github.binout.pokemongo.domain.Pokedex;
 import io.github.binout.pokemongo.domain.Pokemon;
 import io.github.binout.pokemongo.domain.PokemonRate;
 import net.codestory.http.WebServer;
@@ -23,13 +24,25 @@ import net.codestory.http.payload.Payload;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Server {
 
     public static void main(String[] args) {
-        new WebServer().configure(routes ->
-            routes.url("/pokemon-rates").post(context -> computeRate(context.extract(RestPokemon.class)))
+        new WebServer().configure(routes -> {
+                    routes.url("/pokemon-rates").post(context -> computeRate(context.extract(RestPokemon.class)));
+                    routes.url("/pokedex").get(context -> pokedex());
+                }
         ).start();
+    }
+
+    private static Payload pokedex() {
+        return new Payload(Pokedex.get().allIds().mapToObj(id -> {
+            RestPokedexItem item = new RestPokedexItem();
+            item.setId(id);
+            item.setName(Pokedex.get().getNameOf(id));
+            return item;
+        }).collect(Collectors.toList()));
     }
 
     private static Payload computeRate(RestPokemon restPokemon) {
@@ -59,6 +72,27 @@ public class Server {
         restIv.setStamina(iv.stamina());
         restIv.setPerfect(iv.perfectRate());
         return restIv;
+    }
+
+    private static class RestPokedexItem {
+        private int id;
+        private String name;
+
+        public int getId() {
+            return id;
+        }
+
+        public void setId(int id) {
+            this.id = id;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
     }
 
     private static class RestPokemonRate extends RestPokemon {

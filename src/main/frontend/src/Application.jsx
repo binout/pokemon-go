@@ -6,14 +6,24 @@ const Application = React.createClass({
 
     getInitialState() {
         return {
+            pokedex : [],
+            pokemon : -1,
             rate : {}
         }
+    },
+
+    componentDidMount() {
+        $.ajax({
+            url: '/pokedex',
+            type: 'GET',
+            contentType : 'application/json'
+        }).done(data => this.setState({pokedex : data}));
     },
 
     handleSubmit(e){
         e.preventDefault();
         var pokemon = {
-            id : this.refs.inputId.value,
+            id : this.state.pokemon,
             cp : this.refs.inputCp.value,
             hp : this.refs.inputHp.value,
             dust : this.refs.inputDust.value,
@@ -93,13 +103,25 @@ const Application = React.createClass({
         }
     },
 
+    pokemonSelected(event) {
+        this.setState({pokemon: event.target.value});
+    },
+
+    renderSelect() {
+        return (
+          <select onChange={this.pokemonSelected}>
+              {this.state.pokedex.map(p => <option key={p.id} value={p.id}>{p.id} - {p.name}</option>)}
+          </select>
+        );
+    },
+
     render() {
         return (
             <div className="App container">
                 <PageHeader>Pokemon GO<small> IV Calculator</small></PageHeader>
 
                 <form ref="form" onSubmit={this.handleSubmit}>
-                    Pokemon <input type="text" ref="inputId" />
+                    {this.renderSelect()}
                     &nbsp;CP <input type="text" ref="inputCp" />
                     &nbsp;HP <input type="text" ref="inputHp" />
                     &nbsp;Dust <input type="text" ref="inputDust" />
