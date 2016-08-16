@@ -57,6 +57,7 @@ public class Server {
         restIv.setAttack(iv.attack());
         restIv.setDefense(iv.defense());
         restIv.setStamina(iv.stamina());
+        restIv.setPerfect(iv.perfectRate());
         return restIv;
     }
 
@@ -111,6 +112,15 @@ public class Server {
         private int stamina;
         private int attack;
         private int defense;
+        private double perfect;
+
+        public double getPerfect() {
+            return perfect;
+        }
+
+        public void setPerfect(double perfect) {
+            this.perfect = perfect;
+        }
 
         public double getLevel() {
             return level;
