@@ -19,6 +19,7 @@ import io.github.binout.pokemongo.domain.*;
 import net.codestory.http.WebServer;
 import net.codestory.http.payload.Payload;
 
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -49,13 +50,15 @@ public class Server {
 
     private static Payload computeRate(RestPokemon restPokemon) {
         Pokemon pokemon = new Pokemon(restPokemon.getId(), restPokemon.getCp(), restPokemon.getHp());
-        PokemonRate pokemonRate = new PokemonRate(pokemon, new Dust(restPokemon.getDust()));
+        PokemonRate pokemonRate = new PokemonRate(restPokemon.getTrainer(), pokemon, new Dust(restPokemon.getDust()));
         return new Payload(convertToRestModel(pokemonRate));
     }
 
     private static RestPokemonRate convertToRestModel(PokemonRate pokemonRate) {
         RestPokemonRate rate = new RestPokemonRate();
         rate.setId(pokemonRate.pokemon().id());
+        rate.setTrainer(pokemonRate.trainer());
+        rate.setDate(DateTimeFormatter.ISO_DATE.format(pokemonRate.date()));
         rate.setCp(pokemonRate.pokemon().cp());
         rate.setHp(pokemonRate.pokemon().hp());
         rate.setName(pokemonRate.pokemon().name());
@@ -99,6 +102,7 @@ public class Server {
 
     private static class RestPokemonRate extends RestPokemon {
         private String name;
+        private String date;
         private int maxCp;
         private int maxHp;
         private List<RestIv> ivs = new ArrayList<>();
@@ -137,6 +141,14 @@ public class Server {
 
         public void setIvs(List<RestIv> ivs) {
             this.ivs = ivs;
+        }
+
+        public String getDate() {
+            return date;
+        }
+
+        public void setDate(String date) {
+            this.date = date;
         }
     }
 
@@ -190,6 +202,7 @@ public class Server {
 
     private static class RestPokemon {
         private int id;
+        private String trainer;
         private int cp;
         private int hp;
         private int dust;
@@ -200,6 +213,14 @@ public class Server {
 
         public void setId(int id) {
             this.id = id;
+        }
+
+        public String getTrainer() {
+            return trainer;
+        }
+
+        public void setTrainer(String trainer) {
+            this.trainer = trainer;
         }
 
         public int getCp() {

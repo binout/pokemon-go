@@ -33,6 +33,7 @@ const Application = React.createClass({
         e.preventDefault();
         var pokemon = {
             id : this.state.pokemon,
+            trainer : this.refs.inputTrainer.value,
             cp : this.refs.inputCp.value,
             hp : this.refs.inputHp.value,
             dust : this.state.dust,
@@ -67,6 +68,7 @@ const Application = React.createClass({
                 <PageHeader>Pokemon GO<small> IV Calculator</small></PageHeader>
 
                 <form ref="form" onSubmit={this.handleSubmit}>
+                    Trainer <input type="text" defaultValue="Sacha" ref="inputTrainer"/><br/><br/>
                     {this.renderSelectPokemon()}
                     &nbsp;CP <input type="number" min="10" max="5000" required="true" ref="inputCp" />
                     &nbsp;HP <input type="number" min="1" max="500" required="true" ref="inputHp" />

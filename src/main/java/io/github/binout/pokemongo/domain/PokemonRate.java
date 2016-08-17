@@ -15,18 +15,32 @@
  */
 package io.github.binout.pokemongo.domain;
 
+import java.time.Instant;
+import java.time.LocalDate;
 import java.util.Map;
 
 public class PokemonRate {
 
+    private final String trainer;
+    private final LocalDate date;
     private final Pokemon pokemon;
     private final Dust dust;
     private final Map<Double, IndividualValues> ivsByLevel;
 
-    public PokemonRate(Pokemon pokemon, Dust dust) {
+    public PokemonRate(String trainer, Pokemon pokemon, Dust dust) {
+        this.date = LocalDate.now();
+        this.trainer = trainer;
         this.pokemon = pokemon;
         this.dust = dust;
         this.ivsByLevel = pokemon.potentialIvsByLevel(dust);
+    }
+
+    public String trainer() {
+        return trainer;
+    }
+
+    public LocalDate date() {
+        return date;
     }
 
     public Pokemon pokemon() {

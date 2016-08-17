@@ -3,6 +3,8 @@ import {Panel,Label,Table} from 'react-bootstrap';
 
 import PokemonSnap from './PokemonSnap.jsx';
 
+var moment = require('moment');
+
 const PokemonRate = React.createClass({
 
     getDefaultProps() {
@@ -36,13 +38,15 @@ const PokemonRate = React.createClass({
     },
     
     render() {
-        if (this.props.rate.id) {
+        var rate = this.props.rate;
+        if (rate.id) {
+            let header = rate.name + ' (' + rate.trainer + ')' + ' - ' + moment(rate.date).format('YYYY/MM/DD');
             return (
-                <Panel header={this.props.rate.name}>
+                <Panel header={header}>
                     <h4>
-                        <PokemonSnap id={this.props.rate.id}/>
-                        <Label>CP</Label> {this.props.rate.cp}/{this.props.rate.maxCp}&nbsp;
-                        <Label>HP</Label> {this.props.rate.hp}/{this.props.rate.maxHp}
+                        <PokemonSnap id={rate.id}/>
+                        <p><Label>CP</Label> {rate.cp}/{rate.maxCp}</p>
+                        <p><Label>HP</Label> {rate.hp}/{rate.maxHp}</p>
                     </h4>
 
                     <Table striped bordered condensed>
@@ -56,7 +60,7 @@ const PokemonRate = React.createClass({
                         </tr>
                         </thead>
                         <tbody>
-                        {this.props.rate.ivs.map(iv => this.renderLine(iv))}
+                        {rate.ivs.map(iv => this.renderLine(iv))}
                         </tbody>
                     </Table>
                 </Panel>
