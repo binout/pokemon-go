@@ -15,6 +15,7 @@
  */
 package io.github.binout.pokemongo;
 
+import io.github.binout.pokemongo.domain.Dust;
 import io.github.binout.pokemongo.domain.Pokemon;
 import io.github.binout.pokemongo.domain.PokemonRate;
 
@@ -26,7 +27,7 @@ public class Cli {
         int hp = 79;
         int dust = 2200;
         Pokemon pokemon = new Pokemon(pokemonId, cp, hp);
-        PokemonRate pokemonRate = new PokemonRate(pokemon, dust);
+        PokemonRate pokemonRate = new PokemonRate(pokemon, new Dust(dust));
         pokemonRate.ivsByLevel().forEach((level, iv) -> System.out.println(
                 "Name : " + pokemon.name()
                         + ", MaxCP : " + pokemon.maxCp()

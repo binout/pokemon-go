@@ -21,8 +21,9 @@ import java.io.IOException;
 import java.io.UncheckedIOException;
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.stream.IntStream;
 
-class LevelData {
+public class LevelData {
 
     private static LevelData[] ALL;
 
@@ -39,6 +40,10 @@ class LevelData {
 
     static double maxScalar() {
         return Arrays.stream(all()).max(Comparator.comparing(LevelData::getLevel)).map(LevelData::getCpScalar).orElseThrow(RuntimeException::new);
+    }
+
+    public static IntStream allDusts() {
+        return Arrays.stream(all()).mapToInt(l -> l.dust).distinct();
     }
 
     private double level;

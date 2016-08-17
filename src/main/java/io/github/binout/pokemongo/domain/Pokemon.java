@@ -51,11 +51,11 @@ public class Pokemon {
         return Pokedex.get().getNameOf(id);
     }
 
-    public Map<Double, IndividualValues> potentialIvsByLevel(int dust) {
+    public Map<Double, IndividualValues> potentialIvsByLevel(Dust dust) {
         return new IVCalculator(Pokedex.get()).compute(this, dust);
     }
 
-    public IndividualValues iv(double level, int dust) {
+    public IndividualValues iv(double level, Dust dust) {
         return ofNullable(potentialIvsByLevel(dust).get(level))
                 .orElseThrow(IllegalArgumentException::new);
     }

@@ -15,10 +15,7 @@
  */
 package io.github.binout.pokemongo.domain.formula;
 
-import io.github.binout.pokemongo.domain.IndividualValue;
-import io.github.binout.pokemongo.domain.IndividualValues;
-import io.github.binout.pokemongo.domain.Pokedex;
-import io.github.binout.pokemongo.domain.Pokemon;
+import io.github.binout.pokemongo.domain.*;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -42,7 +39,7 @@ public class IVCalculator {
         this.levels = LevelData.all();
     }
 
-    public Map<Double, IndividualValues> compute(Pokemon pokemon, int dust) {
+    public Map<Double, IndividualValues> compute(Pokemon pokemon, Dust dust) {
         Map<Double, IndividualValues> ivs = new TreeMap<>();
         List<LevelData> potentialLevels = potentialLevels(dust);
         List<HPIv> hpivs = hpivs(pokemon, potentialLevels);
@@ -78,8 +75,8 @@ public class IVCalculator {
         return pokemon.cp() == (int)theoricCp;
     }
 
-    private List<LevelData> potentialLevels(int dust) {
-        Stream<LevelData> potentialLevels = Arrays.stream(levels).filter(l -> l.getDust() == dust);
+    private List<LevelData> potentialLevels(Dust dust) {
+        Stream<LevelData> potentialLevels = Arrays.stream(levels).filter(l -> l.getDust() == dust.value());
         return potentialLevels.sorted(Comparator.comparing(LevelData::getLevel).reversed()).collect(Collectors.toList());
     }
 

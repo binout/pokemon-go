@@ -15,10 +15,7 @@
  */
 package io.github.binout.pokemongo;
 
-import io.github.binout.pokemongo.domain.IndividualValues;
-import io.github.binout.pokemongo.domain.Pokedex;
-import io.github.binout.pokemongo.domain.Pokemon;
-import io.github.binout.pokemongo.domain.PokemonRate;
+import io.github.binout.pokemongo.domain.*;
 import net.codestory.http.WebServer;
 import net.codestory.http.payload.Payload;
 
@@ -31,9 +28,14 @@ public class Server {
     public static void main(String[] args) {
         new WebServer().configure(routes -> {
                     routes.url("/pokemon-rates").post(context -> computeRate(context.extract(RestPokemon.class)));
+                    routes.url("/dusts").get(context -> dusts());
                     routes.url("/pokedex").get(context -> pokedex());
                 }
         ).start();
+    }
+
+    private static Payload dusts() {
+        return new Payload(Dust.allValues().sorted().mapToObj(Integer::new).collect(Collectors.toList()));
     }
 
     private static Payload pokedex() {
@@ -47,7 +49,7 @@ public class Server {
 
     private static Payload computeRate(RestPokemon restPokemon) {
         Pokemon pokemon = new Pokemon(restPokemon.getId(), restPokemon.getCp(), restPokemon.getHp());
-        PokemonRate pokemonRate = new PokemonRate(pokemon, restPokemon.getDust());
+        PokemonRate pokemonRate = new PokemonRate(pokemon, new Dust(restPokemon.getDust()));
         return new Payload(convertToRestModel(pokemonRate));
     }
 
@@ -57,7 +59,7 @@ public class Server {
         rate.setCp(pokemonRate.pokemon().cp());
         rate.setHp(pokemonRate.pokemon().hp());
         rate.setName(pokemonRate.pokemon().name());
-        rate.setDust(pokemonRate.dust());
+        rate.setDust(pokemonRate.dust().value());
         rate.setMaxCp(pokemonRate.pokemon().maxCp());
         rate.setMaxHp(pokemonRate.pokemon().maxHp());
         pokemonRate.ivsByLevel().forEach((level, iv) -> rate.addIv(convertToRestModel(level, iv)));

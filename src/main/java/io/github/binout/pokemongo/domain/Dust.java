@@ -15,29 +15,23 @@
  */
 package io.github.binout.pokemongo.domain;
 
-import java.util.Map;
+import io.github.binout.pokemongo.domain.formula.LevelData;
 
-public class PokemonRate {
+import java.util.stream.IntStream;
 
-    private final Pokemon pokemon;
-    private final Dust dust;
-    private final Map<Double, IndividualValues> ivsByLevel;
+public class Dust {
 
-    public PokemonRate(Pokemon pokemon, Dust dust) {
-        this.pokemon = pokemon;
-        this.dust = dust;
-        this.ivsByLevel = pokemon.potentialIvsByLevel(dust);
+    private final int value;
+
+    public Dust(int value) {
+        this.value = allValues().filter(d -> d == value).findFirst().orElseThrow(IllegalArgumentException::new);
     }
 
-    public Pokemon pokemon() {
-        return pokemon;
+    public int value() {
+        return value;
     }
 
-    public Dust dust() {
-        return dust;
-    }
-
-    public Map<Double, IndividualValues> ivsByLevel() {
-        return ivsByLevel;
+    public static IntStream allValues() {
+        return LevelData.allDusts();
     }
 }

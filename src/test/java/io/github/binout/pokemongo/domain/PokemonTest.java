@@ -25,7 +25,7 @@ public class PokemonTest {
 
     @Test
     public void should_compute_ivs_for_evoli() {
-        Map<Double, IndividualValues> potentialIvs = new Pokemon(133, 335, 55).potentialIvsByLevel(1300);
+        Map<Double, IndividualValues> potentialIvs = new Pokemon(133, 335, 55).potentialIvsByLevel(new Dust(1300));
         assertThat(potentialIvs).hasSize(4);
 
         assertIv(potentialIvs.get(11.0), 15, 12, 15);

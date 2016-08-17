@@ -9,7 +9,9 @@ const Application = React.createClass({
     getInitialState() {
         return {
             pokedex : [],
+            dusts : [],
             pokemon : 1,
+            dust : 200,
             rate : {}
         }
     },
@@ -20,6 +22,11 @@ const Application = React.createClass({
             type: 'GET',
             contentType : 'application/json'
         }).done(data => this.setState({pokedex : data}));
+        $.ajax({
+            url: '/dusts',
+            type: 'GET',
+            contentType : 'application/json'
+        }).done(data => this.setState({dusts : data}));
     },
 
     handleSubmit(e){
@@ -28,7 +35,7 @@ const Application = React.createClass({
             id : this.state.pokemon,
             cp : this.refs.inputCp.value,
             hp : this.refs.inputHp.value,
-            dust : this.refs.inputDust.value,
+            dust : this.state.dust,
         };
         $.ajax({
             url: '/pokemon-rates',
@@ -37,16 +44,20 @@ const Application = React.createClass({
             data : JSON.stringify(pokemon)
         }).done(data => this.setState({rate : data}));
     },
-    
-    pokemonSelected(event) {
-        this.setState({pokemon: event.target.value});
-    },
 
-    renderSelect() {
+    renderSelectPokemon() {
         return (
-          <select onChange={this.pokemonSelected}>
+          <select onChange={event => this.setState({pokemon: event.target.value})}>
               {this.state.pokedex.map(p => <option key={p.id} value={p.id}>{p.id} - {p.name}</option>)}
           </select>
+        );
+    },
+
+    renderSelectDust() {
+        return (
+            <select onChange={event => this.setState({dust: event.target.value})}>
+                {this.state.dusts.map(p => <option key={p} value={p}>{p}</option>)}
+            </select>
         );
     },
 
@@ -56,10 +67,10 @@ const Application = React.createClass({
                 <PageHeader>Pokemon GO<small> IV Calculator</small></PageHeader>
 
                 <form ref="form" onSubmit={this.handleSubmit}>
-                    {this.renderSelect()}
+                    {this.renderSelectPokemon()}
                     &nbsp;CP <input type="number" min="10" max="5000" required="true" ref="inputCp" />
                     &nbsp;HP <input type="number" min="1" max="500" required="true" ref="inputHp" />
-                    &nbsp;Dust <input type="number" min="200" max="10000" step="100" required="true" ref="inputDust" />
+                    &nbsp;Dust {this.renderSelectDust()}
                     &nbsp;<Button bsStyle="primary" bsSize="small" onClick={this.handleSubmit}>Rate Pokemon !</Button>
                 </form>
                 
