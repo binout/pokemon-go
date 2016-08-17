@@ -1,7 +1,9 @@
 import React from 'react';
-import {Panel,Label,Table} from 'react-bootstrap';
+import {Panel} from 'react-bootstrap';
 
+import PokemonStat from './PokemonStat.jsx';
 import PokemonSnap from './PokemonSnap.jsx';
+import PokemonIV from './PokemonIV.jsx';
 
 var moment = require('moment');
 
@@ -12,30 +14,6 @@ const PokemonRate = React.createClass({
             rate : {}
         }
     },
-
-    renderLine(iv) {
-        var bsStyle = 'default';
-        if (iv.perfect > 90) {
-            bsStyle = 'success'
-        } else if (iv.perfect > 75) {
-            bsStyle = 'info';
-        } else if (iv.perfect > 50) {
-            bsStyle = 'primary'
-        } else  if (iv.perfect > 25) {
-            bsStyle = 'warning'
-        } else {
-            bsStyle = 'danger';
-        }
-        return (
-            <tr key={iv.level}>
-                <td>{iv.level}</td>
-                <td>{iv.stamina}</td>
-                <td>{iv.attack}</td>
-                <td>{iv.defense}</td>
-                <td><Label bsStyle={bsStyle}>{iv.perfect}</Label></td>
-            </tr>
-        );
-    },
     
     render() {
         var rate = this.props.rate;
@@ -44,25 +22,12 @@ const PokemonRate = React.createClass({
             return (
                 <Panel header={header}>
                     <h4>
-                        <PokemonSnap id={rate.id}/>
-                        <p><Label>CP</Label> {rate.cp}/{rate.maxCp}</p>
-                        <p><Label>HP</Label> {rate.hp}/{rate.maxHp}</p>
+                        <PokemonSnap id={rate.id}/>&nbsp;
+                        <PokemonStat name="CP" value={rate.cp} max={rate.maxCp}/>&nbsp;
+                        <PokemonStat name="HP" value={rate.hp} max={rate.maxHp}/>
                     </h4>
 
-                    <Table striped bordered condensed>
-                        <thead>
-                        <tr>
-                            <th>Level</th>
-                            <th>Stamina</th>
-                            <th>Attack</th>
-                            <th>Defense</th>
-                            <th>Perfection</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        {rate.ivs.map(iv => this.renderLine(iv))}
-                        </tbody>
-                    </Table>
+                    <PokemonIV ivs={rate.ivs}/>
                 </Panel>
             );
         } else {
