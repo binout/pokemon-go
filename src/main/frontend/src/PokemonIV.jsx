@@ -1,5 +1,5 @@
 import React from 'react';
-import {Label,Table} from 'react-bootstrap';
+import {Label,Table,Col} from 'react-bootstrap';
 
 const PokemonIV = React.createClass({
 
@@ -35,20 +35,22 @@ const PokemonIV = React.createClass({
     
     render() {
         return (
-            <Table striped bordered condensed>
-                <thead>
-                <tr>
-                    <th>Level</th>
-                    <th>Stamina</th>
-                    <th>Attack</th>
-                    <th>Defense</th>
-                    <th>Perfection</th>
-                </tr>
-                </thead>
-                <tbody>
-                {this.props.ivs.map(iv => this.renderLine(iv))}
-                </tbody>
-            </Table>
+            <Col sm={10}>
+                <Table striped bordered condensed>
+                    <thead>
+                    <tr>
+                        <th>Level</th>
+                        <th>Stamina</th>
+                        <th>Attack</th>
+                        <th>Defense</th>
+                        <th>Rate</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {this.props.ivs.map(iv => this.renderLine(iv))}
+                    </tbody>
+                </Table>
+            </Col>
         );
     }
 });

@@ -80,6 +80,7 @@ const Application = React.createClass({
                     </FormGroup>
                     <FormGroup controlId="formPokemon" bsSize="sm">
                         <Col sm={3}>
+                            <br/>
                             {this.renderSelectPokemon()}
                             <PokemonSnap id={this.state.pokemon} size="120px"/>&nbsp;
                         </Col>
@@ -92,7 +93,8 @@ const Application = React.createClass({
                             {this.renderSelectDust()}
                         </Col>
                         <Col sm={6}>
-                        <Button bsStyle="primary" bsSize="large" onClick={this.handleSubmit}>Rate Pokemon !</Button>
+                            <br/>
+                            <Button bsStyle="primary" bsSize="large" onClick={this.handleSubmit}>Rate Pokemon !</Button>
                         </Col>
                     </FormGroup>
                 </Form>
