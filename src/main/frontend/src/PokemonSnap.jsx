@@ -4,7 +4,8 @@ const PokemonSnap = React.createClass({
 
     getDefaultProps() {
         return {
-            id : 0
+            id : 0,
+            size : "80px"
         }
     },
 
@@ -18,7 +19,7 @@ const PokemonSnap = React.createClass({
             snap = snap + this.props.id + '.png'
         }
         return (
-            <img src={snap} width="80px" height="80px"/>
+            <img src={snap} width={this.props.size} height={this.props.size}/>
         );
     }
 });

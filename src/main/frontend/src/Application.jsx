@@ -1,8 +1,10 @@
 import $ from 'jquery';
 import React from 'react';
-import {PageHeader,Button} from 'react-bootstrap';
+import ReactDOM from 'react-dom';
+import {PageHeader,Form,Col,FormGroup,ControlLabel,FormControl,Button} from 'react-bootstrap';
 
 import PokemonRate from './PokemonRate.jsx';
+import PokemonSnap from './PokemonSnap.jsx';
 
 const Application = React.createClass({
 
@@ -33,7 +35,7 @@ const Application = React.createClass({
         e.preventDefault();
         var pokemon = {
             id : this.state.pokemon,
-            trainer : this.refs.inputTrainer.value,
+            trainer : ReactDOM.findDOMNode(this.refs.inputTrainer).value,
             cp : this.refs.inputCp.value,
             hp : this.refs.inputHp.value,
             dust : this.state.dust,
@@ -67,17 +69,37 @@ const Application = React.createClass({
             <div className="App container">
                 <PageHeader>Pokemon GO<small> IV Calculator</small></PageHeader>
 
-                <form ref="form" onSubmit={this.handleSubmit}>
-                    Trainer <input type="text" defaultValue="Sacha" ref="inputTrainer"/><br/><br/>
-                    {this.renderSelectPokemon()}
-                    &nbsp;CP <input type="number" min="10" max="5000" required="true" ref="inputCp" />
-                    &nbsp;HP <input type="number" min="1" max="500" required="true" ref="inputHp" />
-                    &nbsp;Dust {this.renderSelectDust()}
-                    &nbsp;<Button bsStyle="primary" bsSize="small" onClick={this.handleSubmit}>Rate Pokemon !</Button>
-                </form>
-                
+                <Form horizontal onSubmit={this.handleSubmit}>
+                    <FormGroup controlId="formTrainer" bsSize="sm">
+                        <Col componentClass={ControlLabel} sm={2}>
+                            Trainer
+                        </Col>
+                        <Col sm={4}>
+                            <FormControl type="text" placeholder="Sacha" defaultValue="Sacha" ref="inputTrainer" />
+                        </Col>
+                    </FormGroup>
+                    <FormGroup controlId="formPokemon" bsSize="sm">
+                        <Col sm={3}>
+                            {this.renderSelectPokemon()}
+                            <PokemonSnap id={this.state.pokemon} size="40px"/>&nbsp;
+                        </Col>
+                        <Col sm={3}>
+                            <ControlLabel>CP</ControlLabel>
+                            <input type="number" min="10" max="5000" required="true" ref="inputCp" />
+                            <ControlLabel>HP</ControlLabel>
+                            <input type="number" min="1" max="500" required="true" ref="inputHp" />
+                            <ControlLabel>Dust</ControlLabel>
+                            {this.renderSelectDust()}
+                        </Col>
+                        <Col sm={1}>
+                        <Button bsStyle="primary" bsSize="small" onClick={this.handleSubmit}>Rate Pokemon !</Button>
+                        </Col>
+                        <Col sm={5}/>
+                    </FormGroup>
+                </Form>
+
                 <hr/>
-                
+
                 <PokemonRate rate={this.state.rate}/>
             </div>
         );
