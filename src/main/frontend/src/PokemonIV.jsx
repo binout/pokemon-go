@@ -11,16 +11,19 @@ const PokemonIV = React.createClass({
 
     renderLine(iv) {
         var bsStyle = 'default';
-        if (iv.perfect > 90) {
-            bsStyle = 'success'
-        } else if (iv.perfect > 75) {
-            bsStyle = 'info';
-        } else if (iv.perfect > 50) {
-            bsStyle = 'primary'
-        } else  if (iv.perfect > 25) {
-            bsStyle = 'warning'
-        } else {
-            bsStyle = 'danger';
+        switch (iv.grade) {
+            case 'A' :
+                bsStyle = 'success'
+                break;
+            case 'B' :
+                bsStyle = 'primary'
+                break;
+            case 'C' :
+                bsStyle = 'warning'
+                break;
+            case 'D' :
+                bsStyle = 'danger'
+                break;
         }
         return (
             <tr key={iv.level}>
@@ -28,7 +31,7 @@ const PokemonIV = React.createClass({
                 <td>{iv.stamina}</td>
                 <td>{iv.attack}</td>
                 <td>{iv.defense}</td>
-                <td><Label bsStyle={bsStyle}>{iv.perfect}</Label></td>
+                <td><Label bsStyle={bsStyle}>{iv.rate}</Label></td>
             </tr>
         );
     },

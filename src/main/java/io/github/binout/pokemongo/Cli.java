@@ -36,7 +36,8 @@ public class Cli {
                         + ", Stamina : " + iv.stamina()
                         + ", Attack : " + iv.attack()
                         + ", Defense : " + iv.defense()
-                        + ", Perfection : " + iv.perfectRate() + " %"));
+                        + ", Perfection : " + iv.grade().rate() + " %"
+                        + ", Grade : " + iv.grade().value()));
 
     }
 }

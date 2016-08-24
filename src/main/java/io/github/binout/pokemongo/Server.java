@@ -83,7 +83,8 @@ public class Server {
         restIv.setAttack(iv.attack());
         restIv.setDefense(iv.defense());
         restIv.setStamina(iv.stamina());
-        restIv.setPerfect(iv.perfectRate());
+        restIv.setRate(iv.grade().rate());
+        restIv.setGrade(iv.grade().value().name());
         return restIv;
     }
 
@@ -165,14 +166,23 @@ public class Server {
         private int stamina;
         private int attack;
         private int defense;
-        private double perfect;
+        private double rate;
+        private String grade;
 
-        public double getPerfect() {
-            return perfect;
+        public double getRate() {
+            return rate;
         }
 
-        public void setPerfect(double perfect) {
-            this.perfect = perfect;
+        public void setRate(double rate) {
+            this.rate = rate;
+        }
+
+        public String getGrade() {
+            return grade;
+        }
+
+        public void setGrade(String grade) {
+            this.grade = grade;
         }
 
         public double getLevel() {
