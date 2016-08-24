@@ -17,12 +17,7 @@ package io.github.binout.pokemongo.infrastructure;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import java.io.IOException;
-import java.io.UncheckedIOException;
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
+import java.io.*;
 import java.util.List;
 import java.util.function.Function;
 import java.util.stream.Collectors;
@@ -37,8 +32,8 @@ class FileDataLoader implements DataLoader {
 
     @Override
     public <T> T fromJson(Class<T> clazz) {
-        try {
-            return new ObjectMapper().readValue(Thread.currentThread().getContextClassLoader().getResourceAsStream(file), clazz);
+        try (InputStream is = Thread.currentThread().getContextClassLoader().getResourceAsStream(file)) {
+            return new ObjectMapper().readValue(is, clazz);
         } catch (IOException e) {
             throw new UncheckedIOException(e);
         }
@@ -46,11 +41,9 @@ class FileDataLoader implements DataLoader {
 
     @Override
     public <T> List<T> fromTxt(Class<T> clazz, Function<String, T> lineProcessor) {
-        try {
-            URI uri = Thread.currentThread().getContextClassLoader().getResource(file).toURI();
-            return Files.readAllLines(Paths.get(uri)).stream().map(lineProcessor).collect(Collectors.toList());
-        } catch (URISyntaxException e) {
-            throw new RuntimeException(e);
+        try (InputStream is = Thread.currentThread().getContextClassLoader().getResourceAsStream(file);
+             BufferedReader br = new BufferedReader(new InputStreamReader(is))) {
+             return br.lines().map(lineProcessor).collect(Collectors.toList());
         } catch (IOException e) {
             throw new UncheckedIOException(e);
         }

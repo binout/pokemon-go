@@ -37,4 +37,12 @@ public class PokemonName {
         return this.names.getOrDefault(locale, this.names.get(DEFAULT_LOCALE));
     }
 
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        this.names.forEach((k,v) -> sb.append("[").append(k).append(":").append(v).append("]"));
+        return "PokemonName{" +
+                "names=" + sb.toString() +
+                '}';
+    }
 }
