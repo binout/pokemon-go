@@ -15,8 +15,12 @@
  */
 package io.github.binout.pokemongo.domain;
 
+import java.io.UnsupportedEncodingException;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.text.MessageFormat;
+import java.util.Locale;
+import java.util.ResourceBundle;
 
 public class IndividualValuesGrade {
 
@@ -24,7 +28,18 @@ public class IndividualValuesGrade {
         A,
         B,
         C,
-        D
+        D;
+
+        public String message(Locale locale, Trainer.Team team, PokemonName pokemonName) {
+            String key = this.name() + "." + team.name() + ".overall";
+            String message = ResourceBundle.getBundle("messages", locale).getString(key);
+            String format = MessageFormat.format(message, pokemonName.getName(locale));
+            try {
+                return new String(format.getBytes("ISO-8859-1"), "UTF-8");
+            } catch (UnsupportedEncodingException e) {
+                throw new RuntimeException(e);
+            }
+        }
     }
 
     private final IndividualValues ivs;

@@ -64,22 +64,26 @@ public class Server {
     }
 
     private static RestPokemonRate convertToRestModel(PokemonRate pokemonRate, Locale locale) {
+        Trainer.Team team = pokemonRate.trainer().team();
+        PokemonName name = pokemonRate.pokemon().name();
         RestPokemonRate rate = new RestPokemonRate();
         rate.setId(pokemonRate.pokemon().id().value());
         rate.setTrainer(pokemonRate.trainer().name());
-        rate.setTeam(pokemonRate.trainer().team().name());
+        rate.setTeam(team.name());
         rate.setDate(DateTimeFormatter.ISO_DATE.format(pokemonRate.date()));
         rate.setCp(pokemonRate.pokemon().cp());
         rate.setHp(pokemonRate.pokemon().hp());
-        rate.setName(pokemonRate.pokemon().name().getName(locale));
+        rate.setName(name.getName(locale));
         rate.setDust(pokemonRate.dust().value());
         rate.setMaxCp(pokemonRate.pokemon().maxCp());
         rate.setMaxHp(pokemonRate.pokemon().maxHp());
-        pokemonRate.ivsByLevel().forEach((level, iv) -> rate.addIv(convertToRestModel(level, iv)));
+        pokemonRate.ivsByLevel().forEach((level, iv) -> {
+            rate.addIv(convertToRestModel(level, iv, locale, team, name));
+        });
         return rate;
     }
 
-    private static RestIv convertToRestModel(Double level, IndividualValues iv) {
+    private static RestIv convertToRestModel(Double level, IndividualValues iv, Locale locale, Trainer.Team team, PokemonName name) {
         RestIv restIv = new RestIv();
         restIv.setLevel(level);
         restIv.setAttack(iv.attack());
@@ -87,6 +91,7 @@ public class Server {
         restIv.setStamina(iv.stamina());
         restIv.setRate(iv.grade().rate());
         restIv.setGrade(iv.grade().value().name());
+        restIv.setMessage(iv.grade().value().message(locale, team, name));
         return restIv;
     }
 
@@ -170,6 +175,15 @@ public class Server {
         private int defense;
         private double rate;
         private String grade;
+        private String message;
+
+        public String getMessage() {
+            return message;
+        }
+
+        public void setMessage(String message) {
+            this.message = message;
+        }
 
         public double getRate() {
             return rate;

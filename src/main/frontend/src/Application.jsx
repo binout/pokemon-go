@@ -34,7 +34,7 @@ const Application = React.createClass({
 
     handleSubmit(e){
         e.preventDefault();
-        var pokemon = {
+        var pokemon = { 
             id : this.state.pokemon,
             team : this.state.team,
             trainer : ReactDOM.findDOMNode(this.refs.inputTrainer).value,

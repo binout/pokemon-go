@@ -31,7 +31,7 @@ const PokemonIV = React.createClass({
                 <td>{iv.stamina}</td>
                 <td>{iv.attack}</td>
                 <td>{iv.defense}</td>
-                <td><Label bsStyle={bsStyle}>{iv.rate}</Label></td>
+                <td><Label bsStyle={bsStyle} title={iv.message}>{iv.rate}</Label></td>
             </tr>
         );
     },
