@@ -2,6 +2,7 @@ package io.github.binout.pokemongo.domain;
 
 import org.testng.annotations.Test;
 
+import java.util.Locale;
 import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -38,6 +39,15 @@ public class PokemonTest {
         assertThat(iv.attack()).isEqualTo(attack);
         assertThat(iv.defense()).isEqualTo(defense);
         assertThat(iv.stamina()).isEqualTo(stamina);
+    }
+
+    @Test
+    public void should_return_all_names() {
+        PokemonName name = new Pokemon(133, 335, 55).name();
+
+        assertThat(name.getName(Locale.ENGLISH)).isEqualTo("Eevee");
+        assertThat(name.getName(Locale.FRENCH)).isEqualTo("Evoli");
+        assertThat(name.getName(Locale.JAPANESE)).isEqualTo("Eievui");
     }
 
 }

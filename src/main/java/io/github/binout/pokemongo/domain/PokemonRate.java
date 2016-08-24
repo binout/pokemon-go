@@ -15,7 +15,6 @@
  */
 package io.github.binout.pokemongo.domain;
 
-import java.time.Instant;
 import java.time.LocalDate;
 import java.util.Map;
 

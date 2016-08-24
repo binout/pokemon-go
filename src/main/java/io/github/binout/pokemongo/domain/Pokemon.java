@@ -47,7 +47,7 @@ public class Pokemon {
         return hp;
     }
 
-    public String name() {
+    public PokemonName name() {
         return Pokedex.get().getNameOf(id);
     }
 

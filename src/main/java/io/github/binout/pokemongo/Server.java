@@ -16,52 +16,60 @@
 package io.github.binout.pokemongo;
 
 import io.github.binout.pokemongo.domain.*;
+import net.codestory.http.Context;
 import net.codestory.http.WebServer;
 import net.codestory.http.payload.Payload;
 
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.stream.Collectors;
+
+import static java.util.Optional.ofNullable;
 
 public class Server {
 
     public static void main(String[] args) {
         new WebServer().configure(routes -> {
-                    routes.url("/pokemon-rates").post(context -> computeRate(context.extract(RestPokemon.class)));
+                    routes.url("/pokemon-rates").post(context -> computeRate(language(context), context.extract(RestPokemon.class)));
                     routes.url("/dusts").get(context -> dusts());
-                    routes.url("/pokedex").get(context -> pokedex());
+                    routes.url("/pokedex").get(context -> pokedex(language(context)));
                 }
         ).start();
+    }
+
+    private static Locale language(Context context) {
+        return ofNullable(context.header("Accept-Language")).map(Locale::forLanguageTag).orElse(Locale.ENGLISH);
     }
 
     private static Payload dusts() {
         return new Payload(Dust.allValues().sorted().mapToObj(Integer::new).collect(Collectors.toList()));
     }
 
-    private static Payload pokedex() {
+    private static Payload pokedex(Locale locale) {
         return new Payload(Pokedex.get().allIds().mapToObj(id -> {
             RestPokedexItem item = new RestPokedexItem();
             item.setId(id);
-            item.setName(Pokedex.get().getNameOf(id));
+            item.setName(Pokedex.get().getNameOf(id).getName(locale));
             return item;
         }).collect(Collectors.toList()));
     }
 
-    private static Payload computeRate(RestPokemon restPokemon) {
+    private static Payload computeRate(Locale locale, RestPokemon restPokemon) {
         Pokemon pokemon = new Pokemon(restPokemon.getId(), restPokemon.getCp(), restPokemon.getHp());
         PokemonRate pokemonRate = new PokemonRate(restPokemon.getTrainer(), pokemon, new Dust(restPokemon.getDust()));
-        return new Payload(convertToRestModel(pokemonRate));
+        return new Payload(convertToRestModel(pokemonRate, locale));
     }
 
-    private static RestPokemonRate convertToRestModel(PokemonRate pokemonRate) {
+    private static RestPokemonRate convertToRestModel(PokemonRate pokemonRate, Locale locale) {
         RestPokemonRate rate = new RestPokemonRate();
         rate.setId(pokemonRate.pokemon().id());
         rate.setTrainer(pokemonRate.trainer());
         rate.setDate(DateTimeFormatter.ISO_DATE.format(pokemonRate.date()));
         rate.setCp(pokemonRate.pokemon().cp());
         rate.setHp(pokemonRate.pokemon().hp());
-        rate.setName(pokemonRate.pokemon().name());
+        rate.setName(pokemonRate.pokemon().name().getName(locale));
         rate.setDust(pokemonRate.dust().value());
         rate.setMaxCp(pokemonRate.pokemon().maxCp());
         rate.setMaxHp(pokemonRate.pokemon().maxHp());

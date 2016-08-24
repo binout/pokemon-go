@@ -15,10 +15,8 @@
  */
 package io.github.binout.pokemongo.domain.formula;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
+import io.github.binout.pokemongo.infrastructure.DataLoader;
 
-import java.io.IOException;
-import java.io.UncheckedIOException;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.stream.IntStream;
@@ -29,11 +27,7 @@ public class LevelData {
 
     static LevelData[] all() {
         if (ALL == null) {
-            try {
-                ALL = new ObjectMapper().readValue(Thread.currentThread().getContextClassLoader().getResourceAsStream("levelUpData.json"), LevelData[].class);
-            } catch (IOException e) {
-                throw new UncheckedIOException(e);
-            }
+            ALL = DataLoader.fromFile("levelUpData.json").fromJson(LevelData[].class);
         }
         return ALL;
     }
