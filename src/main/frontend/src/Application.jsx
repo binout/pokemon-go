@@ -13,6 +13,7 @@ const Application = React.createClass({
             pokedex : [],
             dusts : [],
             pokemon : 1,
+            team : 'RED',
             dust : 200,
             rate : {}
         }
@@ -35,6 +36,7 @@ const Application = React.createClass({
         e.preventDefault();
         var pokemon = {
             id : this.state.pokemon,
+            team : this.state.team,
             trainer : ReactDOM.findDOMNode(this.refs.inputTrainer).value,
             cp : ReactDOM.findDOMNode(this.refs.inputCp).value,
             hp : ReactDOM.findDOMNode(this.refs.inputHp).value,
@@ -64,6 +66,16 @@ const Application = React.createClass({
         );
     },
 
+    renderSelectTeam() {
+        return (
+            <FormControl componentClass="select" onChange={event => this.setState({team: event.target.value})}>
+                <option key="RED" value="RED">Valor (Red)</option>
+                <option key="YELLOW" value="YELLOW">Spark (Yellow)</option>
+                <option key="BLUE" value="BLUE">Mystic (Blue)</option>
+            </FormControl>
+        );
+    },
+
     render() {
         return (
             <div className="App container">
@@ -72,11 +84,18 @@ const Application = React.createClass({
                 <Form horizontal onSubmit={this.handleSubmit}>
                     <FormGroup controlId="formTrainer" bsSize="sm">
                         <Col componentClass={ControlLabel} sm={2}>
+                            Team
+                        </Col>
+                        <Col sm={2}>
+                            {this.renderSelectTeam()}
+                        </Col>
+                        <Col componentClass={ControlLabel} sm={2}>
                             Trainer
                         </Col>
-                        <Col sm={4}>
+                        <Col sm={2}>
                             <FormControl type="text" placeholder="Sacha" defaultValue="Sacha" ref="inputTrainer" />
                         </Col>
+                        <Col sm={4}/>
                     </FormGroup>
                     <FormGroup controlId="formPokemon" bsSize="sm">
                         <Col sm={3}>

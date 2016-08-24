@@ -20,13 +20,13 @@ import java.util.Map;
 
 public class PokemonRate {
 
-    private final String trainer;
+    private final Trainer trainer;
     private final LocalDate date;
     private final Pokemon pokemon;
     private final Dust dust;
     private final Map<Double, IndividualValues> ivsByLevel;
 
-    public PokemonRate(String trainer, Pokemon pokemon, Dust dust) {
+    public PokemonRate(Trainer trainer, Pokemon pokemon, Dust dust) {
         this.date = LocalDate.now();
         this.trainer = trainer;
         this.pokemon = pokemon;
@@ -34,7 +34,7 @@ public class PokemonRate {
         this.ivsByLevel = pokemon.potentialIvsByLevel(dust);
     }
 
-    public String trainer() {
+    public Trainer trainer() {
         return trainer;
     }
 

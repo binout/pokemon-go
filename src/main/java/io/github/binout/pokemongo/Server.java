@@ -58,14 +58,16 @@ public class Server {
 
     private static Payload computeRate(Locale locale, RestPokemon restPokemon) {
         Pokemon pokemon = new Pokemon(new PokemonId(restPokemon.getId()), restPokemon.getCp(), restPokemon.getHp());
-        PokemonRate pokemonRate = new PokemonRate(restPokemon.getTrainer(), pokemon, new Dust(restPokemon.getDust()));
+        Trainer trainer = new Trainer(Trainer.Team.valueOf(restPokemon.getTeam()), restPokemon.getTrainer());
+        PokemonRate pokemonRate = new PokemonRate(trainer, pokemon, new Dust(restPokemon.getDust()));
         return new Payload(convertToRestModel(pokemonRate, locale));
     }
 
     private static RestPokemonRate convertToRestModel(PokemonRate pokemonRate, Locale locale) {
         RestPokemonRate rate = new RestPokemonRate();
         rate.setId(pokemonRate.pokemon().id().value());
-        rate.setTrainer(pokemonRate.trainer());
+        rate.setTrainer(pokemonRate.trainer().name());
+        rate.setTeam(pokemonRate.trainer().team().name());
         rate.setDate(DateTimeFormatter.ISO_DATE.format(pokemonRate.date()));
         rate.setCp(pokemonRate.pokemon().cp());
         rate.setHp(pokemonRate.pokemon().hp());
@@ -221,6 +223,7 @@ public class Server {
     private static class RestPokemon {
         private int id;
         private String trainer;
+        private String team;
         private int cp;
         private int hp;
         private int dust;
@@ -231,6 +234,14 @@ public class Server {
 
         public void setId(int id) {
             this.id = id;
+        }
+
+        public String getTeam() {
+            return team;
+        }
+
+        public void setTeam(String team) {
+            this.team = team;
         }
 
         public String getTrainer() {

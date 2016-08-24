@@ -16,11 +16,23 @@ const PokemonRate = React.createClass({
     },
     
     render() {
-        var rate = this.props.rate;
+        let rate = this.props.rate;
         if (rate.id) {
             let header = rate.name + ' (' + rate.trainer + ')' + ' - ' + moment(rate.date).format('YYYY/MM/DD');
+            let bsStyle = 'default';
+            switch (rate.team) {
+                case 'RED' :
+                    bsStyle = 'danger';
+                    break;
+                case 'YELLOW' :
+                    bsStyle = 'warning';
+                    break;
+                case 'BLUE' :
+                    bsStyle = 'primary';
+                    break;
+            }
             return (
-                <Panel header={header}>
+                <Panel header={header} bsStyle={bsStyle}>
                     <h4>
                         <PokemonSnap id={rate.id}/>&nbsp;
                         <PokemonStat name="CP" value={rate.cp} max={rate.maxCp}/>&nbsp;
