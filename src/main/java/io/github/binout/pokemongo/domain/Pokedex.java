@@ -24,6 +24,7 @@ import java.util.Optional;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 public class Pokedex {
 
@@ -54,36 +55,36 @@ public class Pokedex {
         }).stream().collect(Collectors.toMap(PokeName::getId, Function.identity()));
     }
 
-    public IntStream allIds() {
-        return allById.keySet().stream().mapToInt(i -> i);
+    public Stream<PokemonId> allIds() {
+        return allById.keySet().stream().map(PokemonId::new);
     }
 
     public int count() {
         return allById.size();
     }
 
-    public PokemonName getNameOf(int id) {
-        PokeName pokeName = Optional.ofNullable(allNames.get(id)).orElseThrow(IllegalArgumentException::new);
+    public PokemonName getNameOf(PokemonId id) {
+        PokeName pokeName = Optional.ofNullable(allNames.get(id.value())).orElseThrow(IllegalArgumentException::new);
         PokemonName pokemonName = new PokemonName(pokeName.getEn());
         pokemonName.setName(Locale.FRENCH, pokeName.getFr());
         pokemonName.setName(Locale.JAPANESE, pokeName.getJp());
         return pokemonName;
     }
 
-    public int getStaminaOf(int id) {
+    public int getStaminaOf(PokemonId id) {
         return getOf(id, Pokemon::getStamina);
     }
 
-    public int getAttackOf(int id) {
+    public int getAttackOf(PokemonId id) {
         return getOf(id, Pokemon::getAttack);
     }
 
-    public int getDefenseOf(int id) {
+    public int getDefenseOf(PokemonId id) {
         return getOf(id, Pokemon::getDefense);
     }
 
-    private <T> T getOf(int id, Function<Pokemon, T> getter) {
-        return Optional.ofNullable(allById.get(id)).map(getter).orElseThrow(IllegalArgumentException::new);
+    private <T> T getOf(PokemonId id, Function<Pokemon, T> getter) {
+        return Optional.ofNullable(allById.get(id.value())).map(getter).orElseThrow(IllegalArgumentException::new);
     }
 
     private static class Pokemon {

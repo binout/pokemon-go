@@ -32,7 +32,7 @@ public class PokedexTest {
     @Test
     public void can_load_all_information() {
         Pokedex pokedex = Pokedex.get();
-        IntStream.range(1, pokedex.count()).forEach(id -> {
+        IntStream.range(1, pokedex.count()).mapToObj(PokemonId::new).forEach(id -> {
             assertThat(pokedex.getNameOf(id)).isNotNull();
             assertThat(pokedex.getAttackOf(id)).isNotNull();
             assertThat(pokedex.getDefenseOf(id)).isNotNull();

@@ -48,23 +48,23 @@ public class Server {
     }
 
     private static Payload pokedex(Locale locale) {
-        return new Payload(Pokedex.get().allIds().mapToObj(id -> {
+        return new Payload(Pokedex.get().allIds().map(id -> {
             RestPokedexItem item = new RestPokedexItem();
-            item.setId(id);
+            item.setId(id.value());
             item.setName(Pokedex.get().getNameOf(id).getName(locale));
             return item;
         }).collect(Collectors.toList()));
     }
 
     private static Payload computeRate(Locale locale, RestPokemon restPokemon) {
-        Pokemon pokemon = new Pokemon(restPokemon.getId(), restPokemon.getCp(), restPokemon.getHp());
+        Pokemon pokemon = new Pokemon(new PokemonId(restPokemon.getId()), restPokemon.getCp(), restPokemon.getHp());
         PokemonRate pokemonRate = new PokemonRate(restPokemon.getTrainer(), pokemon, new Dust(restPokemon.getDust()));
         return new Payload(convertToRestModel(pokemonRate, locale));
     }
 
     private static RestPokemonRate convertToRestModel(PokemonRate pokemonRate, Locale locale) {
         RestPokemonRate rate = new RestPokemonRate();
-        rate.setId(pokemonRate.pokemon().id());
+        rate.setId(pokemonRate.pokemon().id().value());
         rate.setTrainer(pokemonRate.trainer());
         rate.setDate(DateTimeFormatter.ISO_DATE.format(pokemonRate.date()));
         rate.setCp(pokemonRate.pokemon().cp());

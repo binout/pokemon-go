@@ -25,17 +25,17 @@ import static java.util.Optional.ofNullable;
 
 public class Pokemon {
 
-    private final int id;
+    private final PokemonId id;
     private final int cp;
     private final int hp;
 
-    public Pokemon(int id, int cp, int hp) {
+    public Pokemon(PokemonId id, int cp, int hp) {
         this.id = id;
         this.cp = cp;
         this.hp = hp;
     }
 
-    public int id() {
+    public PokemonId id() {
         return id;
     }
 

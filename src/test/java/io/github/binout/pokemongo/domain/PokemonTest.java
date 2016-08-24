@@ -27,7 +27,7 @@ public class PokemonTest {
 
     @Test
     public void should_compute_ivs_for_evoli() {
-        Map<Double, IndividualValues> potentialIvs = new Pokemon(133, 335, 55).potentialIvsByLevel(new Dust(1300));
+        Map<Double, IndividualValues> potentialIvs = new Pokemon(new PokemonId(133), 335, 55).potentialIvsByLevel(new Dust(1300));
         assertThat(potentialIvs).hasSize(4);
 
         assertIv(potentialIvs.get(11.0), 15, 12, 15, Grade.A);
@@ -45,7 +45,7 @@ public class PokemonTest {
 
     @Test
     public void should_return_all_names() {
-        PokemonName name = new Pokemon(133, 335, 55).name();
+        PokemonName name = new Pokemon(new PokemonId(133), 335, 55).name();
 
         assertThat(name.getName(Locale.ENGLISH)).isEqualTo("Eevee");
         assertThat(name.getName(Locale.FRENCH)).isEqualTo("Evoli");
