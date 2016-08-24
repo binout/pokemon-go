@@ -34,17 +34,20 @@ public class IndividualValuesGrade {
     }
 
     public double rate() {
-        int sum = ivs.stamina() + ivs.defense() + ivs.attack();
-        return new BigDecimal(sum).multiply(new BigDecimal(2.22)).setScale(2, RoundingMode.HALF_UP).doubleValue();
+        return new BigDecimal(sumIvs()).multiply(new BigDecimal(2.22)).setScale(2, RoundingMode.HALF_UP).doubleValue();
+    }
+
+    private int sumIvs() {
+        return ivs.stamina() + ivs.defense() + ivs.attack();
     }
 
     public Grade value() {
-        double rate = rate();
-        if (rate >= 80) {
+        int sumIvs = sumIvs();
+        if (sumIvs > 37) {
             return Grade.A;
-        } else if (rate >= 67) {
+        } else if (sumIvs >= 30) {
             return Grade.B;
-        } else if (rate >= 51) {
+        } else if (sumIvs >= 23) {
             return Grade.C;
         } else {
             return Grade.D;

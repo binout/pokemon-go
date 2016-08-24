@@ -1,5 +1,6 @@
 package io.github.binout.pokemongo.domain;
 
+import io.github.binout.pokemongo.domain.IndividualValuesGrade.Grade;
 import org.testng.annotations.Test;
 
 import java.util.Locale;
@@ -29,16 +30,17 @@ public class PokemonTest {
         Map<Double, IndividualValues> potentialIvs = new Pokemon(133, 335, 55).potentialIvsByLevel(new Dust(1300));
         assertThat(potentialIvs).hasSize(4);
 
-        assertIv(potentialIvs.get(11.0), 15, 12, 15);
-        assertIv(potentialIvs.get(11.5), 13, 7, 13);
-        assertIv(potentialIvs.get(12.0), 12, 0, 11);
-        assertIv(potentialIvs.get(12.5), 8, 1, 8);
+        assertIv(potentialIvs.get(11.0), 15, 12, 15, Grade.A);
+        assertIv(potentialIvs.get(11.5), 13, 7, 13, Grade.B);
+        assertIv(potentialIvs.get(12.0), 12, 0, 11, Grade.C);
+        assertIv(potentialIvs.get(12.5), 8, 1, 8, Grade.D);
     }
 
-    private void assertIv(IndividualValues iv, int attack, int defense, int stamina) {
+    private void assertIv(IndividualValues iv, int attack, int defense, int stamina, Grade grade) {
         assertThat(iv.attack()).isEqualTo(attack);
         assertThat(iv.defense()).isEqualTo(defense);
         assertThat(iv.stamina()).isEqualTo(stamina);
+        assertThat(iv.grade().value()).isEqualTo(grade);
     }
 
     @Test
