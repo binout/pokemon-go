@@ -1,5 +1,5 @@
 import React from 'react';
-import {Label,Table,Col} from 'react-bootstrap';
+import {Label,Table,Popover,OverlayTrigger} from 'react-bootstrap';
 
 const PokemonIV = React.createClass({
 
@@ -25,35 +25,40 @@ const PokemonIV = React.createClass({
                 bsStyle = 'danger'
                 break;
         }
+        var popover = (
+            <Popover><span>{iv.message}</span></Popover>
+        );
         return (
             <tr key={iv.level}>
                 <td>{iv.level}</td>
                 <td>{iv.stamina}</td>
                 <td>{iv.attack}</td>
                 <td>{iv.defense}</td>
-                <td><Label bsStyle={bsStyle} title={iv.message}>{iv.rate}</Label></td>
+                <td>
+                    <OverlayTrigger trigger="click" overlay={popover}>
+                        <Label bsStyle={bsStyle}>{iv.rate}</Label>
+                    </OverlayTrigger>
+                </td>
             </tr>
         );
     },
     
     render() {
         return (
-            <Col sm={10}>
-                <Table striped bordered condensed>
-                    <thead>
-                    <tr>
-                        <th>Level</th>
-                        <th>Stamina</th>
-                        <th>Attack</th>
-                        <th>Defense</th>
-                        <th>Rate</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    {this.props.ivs.map(iv => this.renderLine(iv))}
-                    </tbody>
-                </Table>
-            </Col>
+            <Table striped bordered condensed>
+                <thead>
+                <tr>
+                    <th>Level</th>
+                    <th>Stamina</th>
+                    <th>Attack</th>
+                    <th>Defense</th>
+                    <th>Rate</th>
+                </tr>
+                </thead>
+                <tbody>
+                {this.props.ivs.map(iv => this.renderLine(iv))}
+                </tbody>
+            </Table>
         );
     }
 });
