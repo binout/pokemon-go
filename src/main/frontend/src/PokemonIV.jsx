@@ -35,7 +35,7 @@ const PokemonIV = React.createClass({
                 <td>{iv.attack}</td>
                 <td>{iv.defense}</td>
                 <td>
-                    <OverlayTrigger trigger="click" overlay={popover}>
+                    <OverlayTrigger trigger="click" placement="left" overlay={popover}>
                         <Label bsStyle={bsStyle}>{iv.rate}</Label>
                     </OverlayTrigger>
                 </td>
@@ -45,7 +45,7 @@ const PokemonIV = React.createClass({
     
     render() {
         return (
-            <Table striped bordered condensed>
+            <Table striped bordered condensed responsive>
                 <thead>
                 <tr>
                     <th>Level</th>

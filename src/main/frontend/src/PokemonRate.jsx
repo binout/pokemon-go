@@ -1,5 +1,5 @@
 import React from 'react';
-import {Panel} from 'react-bootstrap';
+import {Panel,Col} from 'react-bootstrap';
 
 import PokemonStat from './PokemonStat.jsx';
 import PokemonSnap from './PokemonSnap.jsx';
@@ -33,13 +33,16 @@ const PokemonRate = React.createClass({
             }
             return (
                 <Panel header={header} bsStyle={bsStyle}>
-                    <h4>
-                        <PokemonSnap id={rate.id}/>&nbsp;
-                        <PokemonStat name="CP" value={rate.cp} max={rate.maxCp}/>&nbsp;
-                        <PokemonStat name="HP" value={rate.hp} max={rate.maxHp}/>
-                    </h4>
-
-                    <PokemonIV ivs={rate.ivs}/>
+                    <Col>
+                        <h4>
+                            <PokemonSnap id={rate.id}/>&nbsp;
+                            <PokemonStat name="CP" value={rate.cp} max={rate.maxCp}/>&nbsp;
+                            <PokemonStat name="HP" value={rate.hp} max={rate.maxHp}/>
+                        </h4>
+                    </Col>
+                    <Col>
+                        <PokemonIV ivs={rate.ivs}/>
+                    </Col>
                 </Panel>
             );
         } else {
