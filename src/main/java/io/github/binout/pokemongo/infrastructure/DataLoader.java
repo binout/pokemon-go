@@ -22,7 +22,11 @@ public interface DataLoader {
 
     <T> T fromJson(Class<T> clazz);
 
-    <T> List<T> fromTxt(Class<T> clazz, Function<String, T> consumer);
+    <T> List<T> fromTxt(Class<T> clazz, Function<String, T> consumer, int skipLines);
+
+    default <T> List<T> fromTxt(Class<T> clazz, Function<String, T> consumer) {
+        return fromTxt(clazz, consumer, 0);
+    }
 
     static DataLoader fromFile(String file) {
         return new FileDataLoader(file);

@@ -43,10 +43,10 @@ class FileDataLoader implements DataLoader {
     }
 
     @Override
-    public <T> List<T> fromTxt(Class<T> clazz, Function<String, T> lineProcessor) {
+    public <T> List<T> fromTxt(Class<T> clazz, Function<String, T> lineProcessor, int skipLines) {
         try (InputStream is = Thread.currentThread().getContextClassLoader().getResourceAsStream(file);
              BufferedReader br = new BufferedReader(new InputStreamReader(is))) {
-             return br.lines().map(lineProcessor).collect(Collectors.toList());
+             return br.lines().skip(skipLines).map(lineProcessor).collect(Collectors.toList());
         } catch (IOException e) {
             throw new UncheckedIOException(e);
         }
