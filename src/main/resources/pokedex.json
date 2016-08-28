@@ -4,1056 +4,1811 @@
   "name": "Bulbasaur",
   "stamina": 90,
   "attack": 126,
-  "defense": 126
+  "defense": 126,
+  "type": ["Grass","Poison"],
+  "moves" : {
+    "quick" : ["Tackle","Vine Whip"],
+    "charge" : ["Power Whip","Seed Bomb","Sludge Bomb"]
+  }
  },
  {
   "id": 2,
   "name": "Ivysaur",
   "stamina": 120,
   "attack": 156,
-  "defense": 158
+  "defense": 158,
+  "type": ["Grass","Poison"],
+  "moves" : {
+    "quick" : ["Razor Leaf","Vine Whip"],
+    "charge" : ["Power Whip","Solar Beam","Sludge Bomb"]
+  }
  },
  {
   "id": 3,
   "name": "Venusaur",
   "stamina": 160,
   "attack": 198,
-  "defense": 200
+  "defense": 200,
+  "type": ["Grass","Poison"],
+  "moves" : {
+    "quick" : ["Razor Leaf","Vine Whip"],
+    "charge" : ["Petal Blizzard","Solar Beam","Sludge Bomb"]
+  }
  },
  {
   "id": 4,
   "name": "Charmander",
   "stamina": 78,
   "attack": 128,
-  "defense": 108
+  "defense": 108,
+  "type": ["Fire"],
+  "moves" : {
+    "quick" : ["Ember","Scratch"],
+    "charge" : ["Flame Burst","Flamethrower","Flame Charge"]
+  }
  },
  {
   "id": 5,
   "name": "Charmeleon",
   "stamina": 116,
   "attack": 160,
-  "defense": 140
+  "defense": 140,
+  "type": ["Fire"],
+  "moves" : {
+    "quick" : ["Ember","Scratch"],
+    "charge" : ["Flame Burst","Flamethrower","Fire Punch"]
+  }
  },
  {
   "id": 6,
   "name": "Charizard",
   "stamina": 156,
   "attack": 212,
-  "defense": 182
+  "defense": 182,
+  "type": ["Fire","Flying"],
+  "moves" : {
+    "quick" : ["Ember","Wing Attack"],
+    "charge" : ["Dragon Claw","Flamethrower","Fire Blast"]
+  }
  },
  {
   "id": 7,
   "name": "Squirtle",
   "stamina": 88,
   "attack": 112,
-  "defense": 142
+  "defense": 142,
+  "type": ["Water"],
+  "moves" : {
+    "quick" : ["Bubble","Tackle"],
+    "charge" : ["Aqua Jet","Aqua Tail","Water Pulse"]
+  }
  },
  {
   "id": 8,
   "name": "Wartortle",
   "stamina": 118,
   "attack": 144,
-  "defense": 176
+  "defense": 176,
+  "type": ["Water"],
+  "moves" : {
+    "quick" : ["Bite","Water Gun"],
+    "charge" : ["Aqua Jet","Hydro Pump","Ice Beam"]
+  }
  },
  {
   "id": 9,
   "name": "Blastoise",
   "stamina": 158,
   "attack": 186,
-  "defense": 222
+  "defense": 222,
+  "type": ["Water"],
+  "moves" : {
+    "quick" : ["Bite","Water Gun"],
+    "charge" : ["Flash Cannon","Hydro Pump","Ice Beam"]
+  }
  },
  {
   "id": 10,
   "name": "Caterpie",
   "stamina": 90,
   "attack": 62,
-  "defense": 66
+  "defense": 66,
+  "type": ["Bug"],
+  "moves" : {
+    "quick" : ["Bug Bite","Tackle"],
+    "charge" : ["Struggle"]
+  }
  },
  {
   "id": 11,
   "name": "Metapod",
   "stamina": 100,
   "attack": 56,
-  "defense": 86
+  "defense": 86,
+  "type": ["Bug"],
+  "moves" : {
+    "quick" : ["Bug Bite","Tackle"],
+    "charge" : ["Struggle"]
+  }
  },
  {
   "id": 12,
   "name": "Butterfree",
   "stamina": 120,
   "attack": 144,
-  "defense": 144
+  "defense": 144,
+  "type": ["Bug","Flying"],
+  "moves" : {
+    "quick" : ["Bug Bite","Confusion"],
+    "charge" : ["Bug Buzz", "Psychic", "Signal Beam"]
+  }
  },
  {
   "id": 13,
   "name": "Weedle",
   "stamina": 80,
   "attack": 68,
-  "defense": 64
+  "defense": 64,
+  "type": ["Bug","Poison"],
+  "moves" : {
+    "quick" : ["Bug Bite","Poison Sting"],
+    "charge" : ["Struggle"]
+  }
  },
  {
   "id": 14,
   "name": "Kakuna",
   "stamina": 90,
   "attack": 62,
-  "defense": 82
+  "defense": 82,
+  "type": ["Bug","Poison"],
+  "moves" : {
+    "quick" : ["Bug Bite","Poison Sting"],
+    "charge" : ["Struggle"]
+  }
  },
  {
   "id": 15,
   "name": "Beedrill",
   "stamina": 130,
   "attack": 144,
-  "defense": 130
+  "defense": 130,
+  "type": ["Bug","Poison"],
+  "moves" : {
+    "quick" : ["Bug Bite","Poison Jap"],
+    "charge" : ["Aerial Ace","Sludge Bomb","X-Scissor"]
+  }
  },
  {
   "id": 16,
   "name": "Pidgey",
   "stamina": 80,
   "attack": 94,
-  "defense": 90
+  "defense": 90,
+  "type": ["Flying","Normal"],
+  "moves" : {
+    "quick" : ["Quick Attack","Tackle"],
+    "charge" : ["Aerial Ace","Air Cutter","Twister"]
+  }
  },
  {
   "id": 17,
   "name": "Pidgeotto",
   "stamina": 126,
   "attack": 126,
-  "defense": 122
+  "defense": 122,
+  "type": ["Flying","Normal"],
+  "moves" : {
+    "quick" : ["Steel Wing","Wing Attack"],
+    "charge" : ["Aerial Ace","Air Cutter","Twister"]
+  }
  },
  {
   "id": 18,
   "name": "Pidgeot",
   "stamina": 166,
   "attack": 170,
-  "defense": 166
+  "defense": 166,
+  "type": ["Flying","Normal"],
+  "moves" : {
+    "quick" : ["Steel Wing","Wing Attack"],
+    "charge" : ["Aerial Ace","Air Cutter","Hurricane"]
+  }
  },
  {
   "id": 19,
   "name": "Rattata",
   "stamina": 60,
   "attack": 92,
-  "defense": 86
+  "defense": 86,
+  "type": ["Normal"],
+  "moves" : {
+    "quick" : ["Quick Attack","Tackle"],
+    "charge" : ["Body Slam","Dig","Hyper Fang"]
+  }
  },
  {
   "id": 20,
   "name": "Raticate",
   "stamina": 110,
   "attack": 146,
-  "defense": 150
+  "defense": 150,
+  "type": ["Normal"],
+  "moves" : {
+    "quick" : ["Bite","Quick Attack"],
+    "charge" : ["Hyper Beam","Dig","Hyper Fang"]
+  }
  },
  {
   "id": 21,
   "name": "Spearow",
   "stamina": 80,
   "attack": 102,
-  "defense": 78
+  "defense": 78,
+  "type": ["Flying","Normal"],
+  "moves" : {
+    "quick" : ["Peck","Quick Attack"],
+    "charge" : ["Aerial Ace","Drill Peck","Twister"]
+  }
  },
  {
   "id": 22,
   "name": "Fearow",
   "stamina": 130,
   "attack": 168,
-  "defense": 146
+  "defense": 146,
+  "type": ["Flying","Normal"],
+  "moves" : {
+    "quick" : ["Peck","Steel Wing"],
+    "charge" : ["Aerial Ace","Drill Run","Twister"]
+  }
  },
  {
   "id": 23,
   "name": "Ekans",
   "stamina": 70,
   "attack": 112,
-  "defense": 112
+  "defense": 112,
+  "type": ["Poison"],
+  "moves" : {
+    "quick" : ["Acid","Poison Sting"],
+    "charge" : ["Gunk Shot","Sludge Bomb","Wrap"]
+  }
  },
  {
   "id": 24,
   "name": "Arbok",
   "stamina": 120,
   "attack": 166,
-  "defense": 166
+  "defense": 166,
+  "type": ["Poison"],
+  "moves" : {
+    "quick" : ["Acid","Bite"],
+    "charge" : ["Gunk Shot","Sludge Wave","Dark Pulse"]
+  }
  },
  {
   "id": 25,
   "name": "Pikachu",
   "stamina": 70,
   "attack": 124,
-  "defense": 108
+  "defense": 108,
+  "type": ["Electric"],
+  "moves" : {
+    "quick" : ["Quick Attack","Thunder Shock"],
+    "charge" : ["Discharge","Thunder","Thunderbolt"]
+  }
  },
  {
   "id": 26,
   "name": "Raichu",
   "stamina": 120,
   "attack": 200,
-  "defense": 154
+  "defense": 154,
+  "type": ["Electric"],
+  "moves" : {
+    "quick" : ["Spark","Thunder Shock"],
+    "charge" : ["Brick Break","Thunder","Thunder Punch"]
+  }
  },
  {
   "id": 27,
   "name": "Sandshrew",
   "stamina": 100,
   "attack": 90,
-  "defense": 114
+  "defense": 114,
+  "type": ["Ground"],
+  "moves" : {
+    "quick" : ["Mud Shot","Scratch"],
+    "charge" : ["Dig","Rock Slide","Rock Tomb"]
+  }
  },
  {
   "id": 28,
   "name": "Sandslash",
   "stamina": 150,
   "attack": 150,
-  "defense": 172
+  "defense": 172,
+  "type": ["Ground"],
+  "moves" : {
+    "quick" : ["Metal Claw","Mud Shot"],
+    "charge" : ["Bulldoze","Earthquake","Rock Tomb"]
+  }
  },
  {
   "id": 29,
   "name": "Nidoran_female",
   "stamina": 110,
   "attack": 100,
-  "defense": 104
+  "defense": 104,
+  "type": ["Poison"],
+  "moves" : {
+    "quick" : ["Bite","Poison Sting"],
+    "charge" : ["Body Slam","Poison Fang","Sludge Bomb"]
+  }
  },
  {
   "id": 30,
   "name": "Nidorina",
   "stamina": 140,
   "attack": 132,
-  "defense": 136
+  "defense": 136,
+  "type": ["Poison"],
+  "moves" : {
+    "quick" : ["Bite","Poison Sting"],
+    "charge" : ["Dig","Poison Fang","Sludge Bomb"]
+  }
  },
  {
   "id": 31,
   "name": "Nidoqueen",
   "stamina": 180,
   "attack": 184,
-  "defense": 190
+  "defense": 190,
+  "type": ["Ground","Poison"],
+  "moves" : {
+    "quick" : ["Poison Jap"],
+    "charge" : ["Earthquake","Sludge Wave","Stone Edge"]
+  }
  },
  {
   "id": 32,
   "name": "Nidoran_male",
   "stamina": 92,
   "attack": 110,
-  "defense": 94
+  "defense": 94,
+  "type": ["Poison"],
+  "moves" : {
+    "quick" : ["Peck","Poison Sting"],
+    "charge" : ["Body Slam","Sludge Bomb","Horn Attack"]
+  }
  },
  {
   "id": 33,
   "name": "Nidorino",
   "stamina": 122,
   "attack": 142,
-  "defense": 128
+  "defense": 128,
+  "type": ["Poison"],
+  "moves" : {
+    "quick" : ["Poison Jap","Poison Sting"],
+    "charge" : ["Dig","Sludge Bomb","Horn Attack"]
+  }
  },
  {
   "id": 34,
   "name": "Nidoking",
   "stamina": 162,
   "attack": 204,
-  "defense": 170
+  "defense": 170,
+  "type": ["Ground","Poison"],
+  "moves" : {
+    "quick" : ["Fury Cutter","Poison Jap"],
+    "charge" : ["Earthquake","Sludge Wave","Megahorn"]
+  }
  },
  {
   "id": 35,
   "name": "Clefairy",
   "stamina": 140,
   "attack": 116,
-  "defense": 124
+  "defense": 124,
+  "type": ["Fairy"],
+  "moves" : {
+    "quick" : ["Pound","Zen Headbutt"],
+    "charge" : ["Body Slam","Disarming Voice","Moonblast"]
+  }
  },
  {
   "id": 36,
   "name": "Clefable",
   "stamina": 190,
   "attack": 178,
-  "defense": 178
+  "defense": 178,
+  "type": ["Fairy"],
+  "moves" : {
+    "quick" : ["Pound","Zen Headbutt"],
+    "charge" : ["Psychic","Dazzling Gleam","Moonblast"]
+  }
  },
  {
   "id": 37,
   "name": "Vulpix",
   "stamina": 76,
   "attack": 106,
-  "defense": 118
+  "defense": 118,
+  "type": ["Fire"],
+  "moves" : {
+    "quick" : ["Ember","Quick Attack"],
+    "charge" : ["Body Slam","Flamethrower","Flame Charge"]
+  }
  },
  {
   "id": 38,
   "name": "Ninetales",
   "stamina": 146,
   "attack": 176,
-  "defense": 194
+  "defense": 194,
+  "type": ["Fire"],
+  "moves" : {
+    "quick" : ["Ember","Feint Attack"],
+    "charge" : ["Fire Blast","Flamethrower","Heat Wave"]
+  }
  },
  {
   "id": 39,
   "name": "Jigglypuff",
   "stamina": 230,
   "attack": 98,
-  "defense": 54
+  "defense": 54,
+  "type": ["Fairy","Normal"],
+  "moves" : {
+    "quick" : ["Feint Attack","Pound"],
+    "charge" : ["Body Slam","Dazzling Gleam","Disarming Voice"]
+  }
  },
  {
   "id": 40,
   "name": "Wigglytuff",
   "stamina": 280,
   "attack": 168,
-  "defense": 108
+  "defense": 108,
+  "type": ["Fairy","Normal"],
+  "moves" : {
+    "quick" : ["Feint Attack","Pound"],
+    "charge" : ["Hyper Beam","Dazzling Gleam","Play Rough"]
+  }
  },
  {
   "id": 41,
   "name": "Zubat",
   "stamina": 80,
   "attack": 88,
-  "defense": 90
+  "defense": 90,
+  "type": ["Flying","Poison"],
+  "moves" : {
+    "quick" : ["Bite","Quick Attack"],
+    "charge" : ["Air Cutter","Poison Fang","Sludge Bomb"]
+  }
  },
  {
   "id": 42,
   "name": "Golbat",
   "stamina": 150,
   "attack": 164,
-  "defense": 164
+  "defense": 164,
+  "type": ["Flying","Poison"],
+  "moves" : {
+    "quick" : ["Bite","Wing Attack"],
+    "charge" : ["Air Cutter","Poison Fang","Ominous Wind"]
+  }
  },
  {
   "id": 43,
   "name": "Oddish",
   "stamina": 90,
   "attack": 134,
-  "defense": 130
+  "defense": 130,
+  "type": ["Grass","Poison"],
+  "moves" : {
+    "quick" : ["Acid","Razor Leaf"],
+    "charge" : ["Moonblast","Seed Bomb","Sludge Bomb"]
+  }
  },
  {
   "id": 44,
   "name": "Gloom",
   "stamina": 120,
   "attack": 162,
-  "defense": 158
+  "defense": 158,
+  "type": ["Grass","Poison"],
+  "moves" : {
+    "quick" : ["Acid","Razor Leaf"],
+    "charge" : ["Moonblast","Petal Blizzard","Sludge Bomb"]
+  }
  },
  {
   "id": 45,
   "name": "Vileplume",
   "stamina": 150,
   "attack": 202,
-  "defense": 190
+  "defense": 190,
+  "type": ["Grass","Poison"],
+  "moves" : {
+    "quick" : ["Acid","Razor Leaf"],
+    "charge" : ["Moonblast","Petal Blizzard","Solar Beam"]
+  }
  },
  {
   "id": 46,
   "name": "Paras",
   "stamina": 70,
   "attack": 122,
-  "defense": 120
+  "defense": 120,
+  "type": ["Bug","Grass"],
+  "moves" : {
+    "quick" : ["Bug Bite","Scratch"],
+    "charge" : ["Cross Poison","X-Scissor","Seed Bomb"]
+  }
  },
  {
   "id": 47,
   "name": "Parasect",
   "stamina": 120,
   "attack": 162,
-  "defense": 170
+  "defense": 170,
+  "type": ["Bug","Grass"],
+  "moves" : {
+    "quick" : ["Bug Bite","Fury Cutter"],
+    "charge" : ["Cross Poison","X-Scissor","Solar Beam"]
+  }
  },
  {
   "id": 48,
   "name": "Venonat",
   "stamina": 120,
   "attack": 108,
-  "defense": 118
+  "defense": 118,
+  "type": ["Bug","Poison"],
+  "moves" : {
+    "quick" : ["Bug Bite","Confusion"],
+    "charge" : ["Poison Fang","Psybeam","Signal Beam"]
+  }
  },
  {
   "id": 49,
   "name": "Venomoth",
   "stamina": 140,
   "attack": 172,
-  "defense": 154
+  "defense": 154,
+  "type": ["Bug","Poison"],
+  "moves" : {
+    "quick" : ["Bug Bite","Confusion"],
+    "charge" : ["Poison Fang","Bug Buzz","Psychic"]
+  }
  },
  {
   "id": 50,
   "name": "Diglett",
   "stamina": 20,
   "attack": 108,
-  "defense": 86
+  "defense": 86,
+  "type": ["Ground"],
+  "moves" : {
+    "quick" : ["Mud Slap","Scratch"],
+    "charge" : ["Dig","Mud Bomb","Rock Tomb"]
+  }
  },
  {
   "id": 51,
   "name": "Dugtrio",
   "stamina": 70,
   "attack": 148,
-  "defense": 140
+  "defense": 140,
+  "type": ["Ground"],
+  "moves" : {
+    "quick" : ["Mud Slap","Sucker Punch"],
+    "charge" : ["Earthquake","Mud Bomb","Stone Edge"]
+  }
  },
  {
   "id": 52,
   "name": "Meowth",
   "stamina": 80,
   "attack": 104,
-  "defense": 94
+  "defense": 94,
+  "type": ["Normal"],
+  "moves" : {
+    "quick" : ["Bite","Scratch"],
+    "charge" : []
+  }
  },
  {
   "id": 53,
   "name": "Persian",
   "stamina": 130,
   "attack": 156,
-  "defense": 146
+  "defense": 146,
+  "type": ["Normal"],
+  "moves" : {
+    "quick" : ["Feint Attack","Scratch"],
+    "charge" : []
+  }
  },
  {
   "id": 54,
   "name": "Psyduck",
   "stamina": 100,
   "attack": 132,
-  "defense": 112
+  "defense": 112,
+  "type": ["Water"],
+  "moves" : {
+    "quick" : ["Water Gun","Zen Headbutt"],
+    "charge" : []
+  }
  },
  {
   "id": 55,
   "name": "Golduck",
   "stamina": 160,
   "attack": 194,
-  "defense": 176
+  "defense": 176,
+  "type": ["Water"],
+  "moves" : {
+    "quick" : ["Confusion","Water Gun"],
+    "charge" : []
+  }
  },
  {
   "id": 56,
   "name": "Mankey",
   "stamina": 80,
   "attack": 122,
-  "defense": 96
+  "defense": 96,
+  "type": ["Fight"],
+  "moves" : {
+    "quick" : ["Karate Chop","Scratch"],
+    "charge" : []
+  }
  },
  {
   "id": 57,
   "name": "Primeape",
   "stamina": 130,
   "attack": 178,
-  "defense": 150
+  "defense": 150,
+  "type": ["Fight","Karate Chop"],
+  "moves" : {
+    "quick" : ["Low Kick"],
+    "charge" : []
+  }
  },
  {
   "id": 58,
   "name": "Growlithe",
   "stamina": 110,
   "attack": 156,
-  "defense": 110
+  "defense": 110,
+  "type": ["Fire"],
+  "moves" : {
+    "quick" : ["Bite","Ember"],
+    "charge" : []
+  }
  },
  {
   "id": 59,
   "name": "Arcanine",
   "stamina": 180,
   "attack": 230,
-  "defense": 180
+  "defense": 180,
+  "type": ["Fire"],
+  "moves" : {
+    "quick" : ["Bite","Fire Fang"],
+    "charge" : []
+  }
  },
  {
   "id": 60,
   "name": "Poliwag",
   "stamina": 80,
   "attack": 108,
-  "defense": 98
+  "defense": 98,
+  "type": ["Water"],
+  "moves" : {
+    "quick" : ["Bubble","Mud Shot"],
+    "charge" : []
+  }
  },
  {
   "id": 61,
   "name": "Poliwhirl",
   "stamina": 130,
   "attack": 132,
-  "defense": 132
+  "defense": 132,
+  "type": ["Water"],
+  "moves" : {
+    "quick" : ["Bubble","Mud Shot"],
+    "charge" : []
+  }
  },
  {
   "id": 62,
   "name": "Poliwrath",
   "stamina": 180,
   "attack": 180,
-  "defense": 202
+  "defense": 202,
+  "type": ["Fight","Water"],
+  "moves" : {
+    "quick" : ["Bubble","Mud Shot"],
+    "charge" : []
+  }
  },
  {
   "id": 63,
   "name": "Abra",
   "stamina": 50,
   "attack": 110,
-  "defense": 76
+  "defense": 76,
+  "type": ["Psychic"],
+  "moves" : {
+    "quick" : ["Zen Headbutt"],
+    "charge" : []
+  }
  },
  {
   "id": 64,
   "name": "Kadabra",
   "stamina": 80,
   "attack": 150,
-  "defense": 112
+  "defense": 112,
+  "type": ["Psychic"],
+  "moves" : {
+    "quick" : ["Confusion","Psycho Cut"],
+    "charge" : []
+  }
  },
  {
   "id": 65,
   "name": "Alakazam",
   "stamina": 110,
   "attack": 186,
-  "defense": 152
+  "defense": 152,
+  "type": ["Psychic"],
+  "moves" : {
+    "quick" : ["Confusion","Psycho Cut"],
+    "charge" : []
+  }
  },
  {
   "id": 66,
   "name": "Machop",
   "stamina": 140,
   "attack": 118,
-  "defense": 96
+  "defense": 96,
+  "type": ["Fight"],
+  "moves" : {
+    "quick" : ["Karate Chop","Low Kick"],
+    "charge" : []
+  }
  },
  {
   "id": 67,
   "name": "Machoke",
   "stamina": 160,
   "attack": 154,
-  "defense": 144
+  "defense": 144,
+  "type": ["Fight"],
+  "moves" : {
+    "quick" : ["Karate Chop","Low Kick"],
+    "charge" : []
+  }
  },
  {
   "id": 68,
   "name": "Machamp",
   "stamina": 180,
   "attack": 198,
-  "defense": 180
+  "defense": 180,
+  "type": ["Fight"],
+  "moves" : {
+    "quick" : ["Bullet Punch","Karate Chop"],
+    "charge" : []
+  }
  },
  {
   "id": 69,
   "name": "Bellsprout",
   "stamina": 100,
   "attack": 158,
-  "defense": 78
+  "defense": 78,
+  "type": ["Grass","Poison"],
+  "moves" : {
+    "quick" : ["Acid","Vine Whip"],
+    "charge" : []
+  }
  },
  {
   "id": 70,
   "name": "Weepinbell",
   "stamina": 130,
   "attack": 190,
-  "defense": 110
+  "defense": 110,
+  "type": ["Grass","Poison"],
+  "moves" : {
+    "quick" : ["Acid","Razor Leaf"],
+    "charge" : []
+  }
  },
  {
   "id": 71,
   "name": "Victreebel",
   "stamina": 160,
   "attack": 222,
-  "defense": 152
+  "defense": 152,
+  "type": ["Grass","Poison"],
+  "moves" : {
+    "quick" : ["Acid","Razor Leaf"],
+    "charge" : []
+  }
  },
  {
   "id": 72,
   "name": "Tentacool",
   "stamina": 80,
   "attack": 106,
-  "defense": 136
+  "defense": 136,
+  "type": ["Poison","Water"],
+  "moves" : {
+    "quick" : ["Bubble","Poison Sting"],
+    "charge" : []
+  }
  },
  {
   "id": 73,
   "name": "Tentacruel",
   "stamina": 160,
   "attack": 170,
-  "defense": 196
+  "defense": 196,
+  "type": ["Poison","Water"],
+  "moves" : {
+    "quick" : ["Acid","Poison Jap"],
+    "charge" : []
+  }
  },
  {
   "id": 74,
   "name": "Geodude",
   "stamina": 80,
   "attack": 106,
-  "defense": 118
+  "defense": 118,
+  "type": ["Ground","Rock"],
+  "moves" : {
+    "quick" : ["Rock Throw","Tackle"],
+    "charge" : []
+  }
  },
  {
   "id": 75,
   "name": "Graveler",
   "stamina": 110,
   "attack": 142,
-  "defense": 156
+  "defense": 156,
+  "type": ["Ground","Rock"],
+  "moves" : {
+    "quick" : ["Mud Slap","Rock Throw"],
+    "charge" : []
+  }
  },
  {
   "id": 76,
   "name": "Golem",
   "stamina": 160,
   "attack": 176,
-  "defense": 198
+  "defense": 198,
+  "type": ["Ground","Rock"],
+  "moves" : {
+    "quick" : ["Mud Slap","Rock Throw"],
+    "charge" : []
+  }
  },
  {
   "id": 77,
   "name": "Ponyta",
   "stamina": 100,
   "attack": 168,
-  "defense": 138
+  "defense": 138,
+  "type": ["Fire"],
+  "moves" : {
+    "quick" : ["Ember","Tackle"],
+    "charge" : []
+  }
  },
  {
   "id": 78,
   "name": "Rapidash",
   "stamina": 130,
   "attack": 200,
-  "defense": 170
+  "defense": 170,
+  "type": ["Fire"],
+  "moves" : {
+    "quick" : ["Ember","Low Kick"],
+    "charge" : []
+  }
  },
  {
   "id": 79,
   "name": "Slowpoke",
   "stamina": 180,
   "attack": 110,
-  "defense": 110
+  "defense": 110,
+  "type": ["Psychic","Water"],
+  "moves" : {
+    "quick" : ["Confusion","Water Gun"],
+    "charge" : []
+  }
  },
  {
   "id": 80,
   "name": "Slowbro",
   "stamina": 190,
   "attack": 184,
-  "defense": 198
+  "defense": 198,
+  "type": ["Psychic","Water"],
+  "moves" : {
+    "quick" : ["Confusion","Water Gun"],
+    "charge" : []
+  }
  },
  {
   "id": 81,
   "name": "Magnemite",
   "stamina": 50,
   "attack": 128,
-  "defense": 138
+  "defense": 138,
+  "type": ["Electric","Steel",],
+  "moves" : {
+    "quick" : ["Spark","Thunder Shock"],
+    "charge" : []
+  }
  },
  {
   "id": 82,
   "name": "Magneton",
   "stamina": 100,
   "attack": 186,
-  "defense": 180
+  "defense": 180,
+  "type": ["Electric","Steel"],
+  "moves" : {
+    "quick" : ["Spark","Thunder Shock"],
+    "charge" : []
+  }
  },
  {
   "id": 83,
   "name": "Farfetchd",
   "stamina": 104,
   "attack": 138,
-  "defense": 132
+  "defense": 132,
+  "type": ["Normal","Flying"],
+  "moves" : {
+    "quick" : ["Cut","Fury Cutter"],
+    "charge" : []
+  }
  },
  {
   "id": 84,
   "name": "Doduo",
   "stamina": 70,
   "attack": 126,
-  "defense": 96
+  "defense": 96,
+  "type": ["Normal","Flying"],
+  "moves" : {
+    "quick" : ["Peck","Quick Attack"],
+    "charge" : []
+  }
  },
  {
   "id": 85,
   "name": "Dodrio",
   "stamina": 120,
   "attack": 182,
-  "defense": 150
+  "defense": 150,
+  "type": ["Normal","Flying"],
+  "moves" : {
+    "quick" : ["Feint Attack","Steel Wing"],
+    "charge" : []
+  }
  },
  {
   "id": 86,
   "name": "Seel",
   "stamina": 130,
   "attack": 104,
-  "defense": 138
+  "defense": 138,
+  "type": ["Water"],
+  "moves" : {
+    "quick" : ["Ice Shard","Lick"],
+    "charge" : []
+  }
  },
  {
   "id": 87,
   "name": "Dewgong",
   "stamina": 180,
   "attack": 156,
-  "defense": 192
+  "defense": 192,
+  "type": ["Ice","Water"],
+  "moves" : {
+    "quick" : ["Frost Breath","Ice Shard"],
+    "charge" : []
+  }
  },
  {
   "id": 88,
   "name": "Grimer",
   "stamina": 160,
   "attack": 124,
-  "defense": 110
+  "defense": 110,
+  "type": ["Poison"],
+  "moves" : {
+    "quick" : ["Mud Slap","Poison Jap"],
+    "charge" : []
+  }
  },
  {
   "id": 89,
   "name": "Muk",
   "stamina": 210,
   "attack": 180,
-  "defense": 188
+  "defense": 188,
+  "type": ["Poison","Lick"],
+  "moves" : {
+    "quick" : ["Poison Jap"],
+    "charge" : []
+  }
  },
  {
   "id": 90,
   "name": "Shellder",
   "stamina": 60,
   "attack": 120,
-  "defense": 112
+  "defense": 112,
+  "type": ["Water"],
+  "moves" : {
+    "quick" : ["Ice Shard","Tackle"],
+    "charge" : []
+  }
  },
  {
   "id": 91,
   "name": "Cloyster",
   "stamina": 100,
   "attack": 196,
-  "defense": 196
+  "defense": 196,
+  "type": ["Ice","Water"],
+  "moves" : {
+    "quick" : ["Frost Breath","Ice Shard"],
+    "charge" : []
+  }
  },
  {
   "id": 92,
   "name": "Gastly",
   "stamina": 60,
   "attack": 136,
-  "defense": 82
+  "defense": 82,
+  "type": ["Ghost","Poison"],
+  "moves" : {
+    "quick" : ["Lick","Shadow Claw","Sucker Punch"],
+    "charge" : []
+  }
  },
  {
   "id": 93,
   "name": "Haunter",
   "stamina": 90,
   "attack": 172,
-  "defense": 118
+  "defense": 118,
+  "type": ["Ghost","Poison"],
+  "moves" : {
+    "quick" : ["Lick","Shadow Claw"],
+    "charge" : []
+  }
  },
  {
   "id": 94,
   "name": "Gengar",
   "stamina": 120,
   "attack": 204,
-  "defense": 156
+  "defense": 156,
+  "type": ["Ghost","Poison"],
+  "moves" : {
+    "quick" : ["Shadow Claw","Sucker Punch"],
+    "charge" : []
+  }
  },
  {
   "id": 95,
   "name": "Onix",
   "stamina": 70,
   "attack": 90,
-  "defense": 186
+  "defense": 186,
+  "type": ["Ground","Rock"],
+  "moves" : {
+    "quick" : ["Rock Throw","Tackle"],
+    "charge" : []
+  }
  },
  {
   "id": 96,
   "name": "Drowzee",
   "stamina": 120,
   "attack": 104,
-  "defense": 140
+  "defense": 140,
+  "type": ["Psychic"],
+  "moves" : {
+    "quick" : ["Confusion","Pound"],
+    "charge" : []
+  }
  },
  {
   "id": 97,
   "name": "Hypno",
   "stamina": 170,
   "attack": 162,
-  "defense": 196
+  "defense": 196,
+  "type": ["Psychic"],
+  "moves" : {
+    "quick" : ["Confusion","Zen Headbutt"],
+    "charge" : []
+  }
  },
  {
   "id": 98,
   "name": "Krabby",
   "stamina": 60,
   "attack": 116,
-  "defense": 110
+  "defense": 110,
+  "type": ["Water"],
+  "moves" : {
+    "quick" : ["Bubble","Mud Shot"],
+    "charge" : []
+  }
  },
  {
   "id": 99,
   "name": "Kingler",
   "stamina": 110,
   "attack": 178,
-  "defense": 168
+  "defense": 168,
+  "type": ["Water"],
+  "moves" : {
+    "quick" : ["Metal Claw","Mud Shot"],
+    "charge" : []
+  }
  },
  {
   "id": 100,
   "name": "Voltorb",
   "stamina": 80,
   "attack": 102,
-  "defense": 124
+  "defense": 124,
+  "type": ["Electric"],
+  "moves" : {
+    "quick" : ["Spark","Tackle"],
+    "charge" : []
+  }
  },
  {
   "id": 101,
   "name": "Electrode",
   "stamina": 120,
   "attack": 150,
-  "defense": 174
+  "defense": 174,
+  "type": ["Electric"],
+  "moves" : {
+    "quick" : ["Spark","Tackle"],
+    "charge" : []
+  }
  },
  {
   "id": 102,
   "name": "Exeggcute",
   "stamina": 120,
   "attack": 110,
-  "defense": 132
+  "defense": 132,
+  "type": ["Grass","Psychic"],
+  "moves" : {
+    "quick" : ["Confusion"],
+    "charge" : []
+  }
  },
  {
   "id": 103,
   "name": "Exeggutor",
   "stamina": 190,
   "attack": 232,
-  "defense": 164
+  "defense": 164,
+  "type": ["Grass","Psychic"],
+  "moves" : {
+    "quick" : ["Confusion","Zen Headbutt"],
+    "charge" : []
+  }
  },
  {
   "id": 104,
   "name": "Cubone",
   "stamina": 100,
   "attack": 102,
-  "defense": 150
+  "defense": 150,
+  "type": ["Ground"],
+  "moves" : {
+    "quick" : ["Mud Slap","Rock Smash"],
+    "charge" : []
+  }
  },
  {
   "id": 105,
   "name": "Marowak",
   "stamina": 120,
   "attack": 140,
-  "defense": 202
+  "defense": 202,
+  "type": ["Ground"],
+  "moves" : {
+    "quick" : ["Mud Slap","Rock Smash"],
+    "charge" : []
+  }
  },
  {
   "id": 106,
   "name": "Hitmonlee",
   "stamina": 100,
   "attack": 148,
-  "defense": 172
+  "defense": 172,
+  "type": ["Fight"],
+  "moves" : {
+    "quick" : ["Low Kick","Rock Smash"],
+    "charge" : []
+  }
  },
  {
   "id": 107,
   "name": "Hitmonchan",
   "stamina": 100,
   "attack": 138,
-  "defense": 204
+  "defense": 204,
+  "type": ["Fight"],
+  "moves" : {
+    "quick" : ["Bullet Punch","Rock Smash"],
+    "charge" : []
+  }
  },
  {
   "id": 108,
   "name": "Lickitung",
   "stamina": 180,
   "attack": 126,
-  "defense": 160
+  "defense": 160,
+  "type": ["Normal"],
+  "moves" : {
+    "quick" : ["Lick","Zen Headbutt"],
+    "charge" : []
+  }
  },
  {
   "id": 109,
   "name": "Koffing",
   "stamina": 80,
   "attack": 136,
-  "defense": 142
+  "defense": 142,
+  "type": ["Poison"],
+  "moves" : {
+    "quick" : ["Tackle"],
+    "charge" : []
+  }
  },
  {
   "id": 110,
   "name": "Weezing",
   "stamina": 130,
   "attack": 190,
-  "defense": 198
+  "defense": 198,
+  "type": ["Poison"],
+  "moves" : {
+    "quick" : ["Tackle"],
+    "charge" : []
+  }
  },
  {
   "id": 111,
   "name": "Rhyhorn",
   "stamina": 160,
   "attack": 110,
-  "defense": 116
+  "defense": 116,
+  "type": ["Ground","Rock"],
+  "moves" : {
+    "quick" : ["Mud Slap","Rock Smash"],
+    "charge" : []
+  }
  },
  {
   "id": 112,
   "name": "Rhydon",
   "stamina": 210,
   "attack": 166,
-  "defense": 160
+  "defense": 160,
+  "type": ["Ground","Rock"],
+  "moves" : {
+    "quick" : ["Mud Slap","Rock Smash"],
+    "charge" : []
+  }
  },
  {
   "id": 113,
   "name": "Chansey",
   "stamina": 500,
   "attack": 40,
-  "defense": 60
+  "defense": 60,
+  "type": ["Normal"],
+  "moves" : {
+    "quick" : ["Pound","Zen Headbutt"],
+    "charge" : []
+  }
  },
  {
   "id": 114,
   "name": "Tangela",
   "stamina": 130,
   "attack": 164,
-  "defense": 152
+  "defense": 152,
+  "type": ["Grass"],
+  "moves" : {
+    "quick" : ["Vine Whip"],
+    "charge" : []
+  }
  },
  {
   "id": 115,
   "name": "Kangaskhan",
   "stamina": 210,
   "attack": 142,
-  "defense": 178
+  "defense": 178,
+  "type": ["Normal"],
+  "moves" : {
+    "quick" : ["Low Kick","Mud Slap"],
+    "charge" : []
+  }
  },
  {
   "id": 116,
   "name": "Horsea",
   "stamina": 60,
   "attack": 122,
-  "defense": 100
+  "defense": 100,
+  "type": ["Water"],
+  "moves" : {
+    "quick" : ["Bubble","Water Gun"],
+    "charge" : []
+  }
  },
  {
   "id": 117,
   "name": "Seadra",
   "stamina": 110,
   "attack": 176,
-  "defense": 150
+  "defense": 150,
+  "type": ["Water"],
+  "moves" : {
+    "quick" : ["Dragon Breath","Water Gun"],
+    "charge" : []
+  }
  },
  {
   "id": 118,
   "name": "Goldeen",
   "stamina": 90,
   "attack": 112,
-  "defense": 126
+  "defense": 126,
+  "type": ["Water"],
+  "moves" : {
+    "quick" : ["Mud Shot","Peck"],
+    "charge" : []
+  }
  },
  {
   "id": 119,
   "name": "Seaking",
   "stamina": 160,
   "attack": 172,
-  "defense": 160
+  "defense": 160,
+  "type": ["Water"],
+  "moves" : {
+    "quick" : ["Peck","Poison Jap"],
+    "charge" : []
+  }
  },
  {
   "id": 120,
   "name": "Staryu",
   "stamina": 60,
   "attack": 130,
-  "defense": 128
+  "defense": 128,
+  "type": ["Water"],
+  "moves" : {
+    "quick" : ["Tackle","Water Gun"],
+    "charge" : []
+  }
  },
  {
   "id": 121,
   "name": "Starmie",
   "stamina": 120,
   "attack": 194,
-  "defense": 192
+  "defense": 192,
+  "type": ["Psychic","Water"],
+  "moves" : {
+    "quick" : ["Tackle","Water Gun"],
+    "charge" : []
+  }
  },
  {
   "id": 122,
   "name": "Mr_mime",
   "stamina": 80,
   "attack": 154,
-  "defense": 196
+  "defense": 196,
+  "type": ["Fairy","Psychic"],
+  "moves" : {
+    "quick" : ["Confusion","Zen Headbutt"],
+    "charge" : []
+  }
  },
  {
   "id": 123,
   "name": "Scyther",
   "stamina": 140,
   "attack": 176,
-  "defense": 180
+  "defense": 180,
+  "type": ["Bug","Flying"],
+  "moves" : {
+    "quick" : ["Fury Cutter","Steel Wing"],
+    "charge" : []
+  }
  },
  {
   "id": 124,
   "name": "Jynx",
   "stamina": 130,
   "attack": 172,
-  "defense": 134
+  "defense": 134,
+  "type": ["Ice","Psychic"],
+  "moves" : {
+    "quick" : ["Frost Breath","Pound"],
+    "charge" : []
+  }
  },
  {
   "id": 125,
   "name": "Electabuzz",
   "stamina": 130,
   "attack": 198,
-  "defense": 160
+  "defense": 160,
+  "type": ["Electric"],
+  "moves" : {
+    "quick" : ["Low Kick","Thunder Shock"],
+    "charge" : []
+  }
  },
  {
   "id": 126,
   "name": "Magmar",
   "stamina": 130,
   "attack": 214,
-  "defense": 158
+  "defense": 158,
+  "type": ["Fire"],
+  "moves" : {
+    "quick" : ["Ember","Karate Chop"],
+    "charge" : []
+  }
  },
  {
   "id": 127,
   "name": "Pinsir",
   "stamina": 130,
   "attack": 184,
-  "defense": 186
+  "defense": 186,
+  "type": ["Bug"],
+  "moves" : {
+    "quick" : ["Fury Cutter","Rock Smash"],
+    "charge" : []
+  }
  },
  {
   "id": 128,
   "name": "Tauros",
   "stamina": 150,
   "attack": 148,
-  "defense": 184
+  "defense": 184,
+  "type": ["Normal"],
+  "moves" : {
+    "quick" : ["Tackle","Zen Headbutt"],
+    "charge" : []
+  }
  },
  {
   "id": 129,
   "name": "Magikarp",
   "stamina": 40,
   "attack": 42,
-  "defense": 84
+  "defense": 84,
+  "type": ["Water"],
+  "moves" : {
+    "quick" : ["Splash"],
+    "charge" : []
+  }
  },
  {
   "id": 130,
   "name": "Gyarados",
   "stamina": 190,
   "attack": 192,
-  "defense": 196
+  "defense": 196,
+  "type": ["Flying","Water"],
+  "moves" : {
+    "quick" : ["Bite"],
+    "charge" : []
+  }
  },
  {
   "id": 131,
   "name": "Lapras",
   "stamina": 260,
   "attack": 186,
-  "defense": 190
+  "defense": 190,
+  "type": ["Ice","Water"],
+  "moves" : {
+    "quick" : ["Frost Breath","Ice Shard"],
+    "charge" : []
+  }
  },
  {
   "id": 132,
   "name": "Ditto",
   "stamina": 96,
   "attack": 110,
-  "defense": 110
+  "defense": 110,
+  "type": ["Normal"],
+  "moves" : {
+    "quick" : ["Pound"],
+    "charge" : []
+  }
  },
  {
   "id": 133,
   "name": "Eevee",
   "stamina": 110,
   "attack": 114,
-  "defense": 128
+  "defense": 128,
+  "type": ["Normal"],
+  "moves" : {
+    "quick" : ["Quick Attack","Tackle"],
+    "charge" : []
+  }
  },
  {
   "id": 134,
   "name": "Vaporeon",
   "stamina": 260,
   "attack": 186,
-  "defense": 168
+  "defense": 168,
+  "type": ["Water"],
+  "moves" : {
+    "quick" : ["Water Gun"],
+    "charge" : []
+  }
  },
  {
   "id": 135,
   "name": "Jolteon",
   "stamina": 130,
   "attack": 192,
-  "defense": 174
+  "defense": 174,
+  "type": ["Electric"],
+  "moves" : {
+    "quick" : ["Thunder Shock"],
+    "charge" : []
+  }
  },
  {
   "id": 136,
   "name": "Flareon",
   "stamina": 130,
   "attack": 238,
-  "defense": 178
+  "defense": 178,
+  "type": ["Fire"],
+  "moves" : {
+    "quick" : ["Ember"],
+    "charge" : []
+  }
  },
  {
   "id": 137,
   "name": "Porygon",
   "stamina": 130,
   "attack": 156,
-  "defense": 158
+  "defense": 158,
+  "type": ["Normal"],
+  "moves" : {
+    "quick" : ["Tackle","Zen Headbutt"],
+    "charge" : []
+  }
  },
  {
   "id": 138,
   "name": "Omanyte",
   "stamina": 70,
   "attack": 132,
-  "defense": 160
+  "defense": 160,
+  "type": ["Rock","Water"],
+  "moves" : {
+    "quick" : ["Mud Shot","Water Gun"],
+    "charge" : []
+  }
  },
  {
   "id": 139,
   "name": "Omastar",
   "stamina": 140,
   "attack": 180,
-  "defense": 202
+  "defense": 202,
+  "type": ["Rock","Water"],
+  "moves" : {
+    "quick" : ["Mud Shot","Water Gun"],
+    "charge" : []
+  }
  },
  {
   "id": 140,
   "name": "Kabuto",
   "stamina": 60,
   "attack": 148,
-  "defense": 142
+  "defense": 142,
+  "type": ["Rock","Water"],
+  "moves" : {
+    "quick" : ["Fury Cutter","Mud Shot","Scratch"],
+    "charge" : []
+  }
  },
  {
   "id": 141,
   "name": "Kabutops",
   "stamina": 120,
   "attack": 190,
-  "defense": 190
+  "defense": 190,
+  "type": ["Rock","Water"],
+  "moves" : {
+    "quick" : ["Mud Shot"],
+    "charge" : []
+  }
  },
  {
   "id": 142,
   "name": "Aerodactyl",
   "stamina": 160,
   "attack": 182,
-  "defense": 162
+  "defense": 162,
+  "type": ["Flying","Rock"],
+  "moves" : {
+    "quick" : ["Bite","Steel Wing"],
+    "charge" : []
+  }
  },
  {
   "id": 143,
   "name": "Snorlax",
   "stamina": 320,
   "attack": 180,
-  "defense": 180
+  "defense": 180,
+  "type": ["Normal"],
+  "moves" : {
+    "quick" : ["Lick","Zen Headbutt"],
+    "charge" : []
+  }
  },
  {
   "id": 144,
   "name": "Articuno",
   "stamina": 180,
   "attack": 198,
-  "defense": 242
+  "defense": 242,
+  "type": ["Flying","Ice"],
+  "moves" : {
+    "quick" : ["Frost Breath"],
+    "charge" : []
+  }
  },
  {
   "id": 145,
   "name": "Zapdos",
   "stamina": 180,
   "attack": 232,
-  "defense": 194
+  "defense": 194,
+  "type": ["Electric","Flying"],
+  "moves" : {
+    "quick" : ["Thunder Shock"],
+    "charge" : []
+  }
  },
  {
   "id": 146,
   "name": "Moltres",
   "stamina": 180,
   "attack": 242,
-  "defense": 194
+  "defense": 194,
+  "type": ["Fire","Flying"],
+  "moves" : {
+    "quick" : ["Ember"],
+    "charge" : []
+  }
  },
  {
   "id": 147,
   "name": "Dratini",
   "stamina": 82,
   "attack": 128,
-  "defense": 110
+  "defense": 110,
+  "type": ["Dragon"],
+  "moves" : {
+    "quick" : ["Dragon Breath"],
+    "charge" : []
+  }
  },
  {
   "id": 148,
   "name": "Dragonair",
   "stamina": 122,
   "attack": 170,
-  "defense": 152
+  "defense": 152,
+  "type": ["Dragon"],
+  "moves" : {
+    "quick" : ["Dragon Breath"],
+    "charge" : []
+  }
  },
  {
   "id": 149,
   "name": "Dragonite",
   "stamina": 182,
   "attack": 250,
-  "defense": 212
+  "defense": 212,
+  "type": ["Dragon","Flying"],
+  "moves" : {
+    "quick" : ["Dragon Breath","Steel Wing"],
+    "charge" : []
+  }
  },
  {
   "id": 150,
   "name": "Mewtwo",
   "stamina": 212,
   "attack": 284,
-  "defense": 202
+  "defense": 202,
+  "type": ["Psychic"],
+  "moves" : {
+    "quick" : ["Confusion","Psycho Cut"],
+    "charge" : []
+  }
  },
  {
   "id": 151,
   "name": "Mew",
   "stamina": 200,
   "attack": 220,
-  "defense": 220
+  "defense": 220,
+  "type": ["Psychic"],
+  "moves" : {
+    "quick" : ["Pound"],
+    "charge" : []
+  }
  }
 ]
