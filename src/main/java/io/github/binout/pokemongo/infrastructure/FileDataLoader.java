@@ -15,6 +15,7 @@
  */
 package io.github.binout.pokemongo.infrastructure;
 
+import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.*;
@@ -33,7 +34,9 @@ class FileDataLoader implements DataLoader {
     @Override
     public <T> T fromJson(Class<T> clazz) {
         try (InputStream is = Thread.currentThread().getContextClassLoader().getResourceAsStream(file)) {
-            return new ObjectMapper().readValue(is, clazz);
+            ObjectMapper objectMapper = new ObjectMapper();
+            objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+            return objectMapper.readValue(is, clazz);
         } catch (IOException e) {
             throw new UncheckedIOException(e);
         }

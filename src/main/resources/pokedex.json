@@ -965,7 +965,7 @@
   "stamina": 50,
   "attack": 128,
   "defense": 138,
-  "type": ["Electric","Steel",],
+  "type": ["Electric","Steel"],
   "moves" : {
     "quick" : ["Spark","Thunder Shock"],
     "charge" : []
