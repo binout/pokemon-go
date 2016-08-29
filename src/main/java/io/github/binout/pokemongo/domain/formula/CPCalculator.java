@@ -15,13 +15,13 @@
  */
 package io.github.binout.pokemongo.domain.formula;
 
-import io.github.binout.pokemongo.domain.IndividualValue;
+import io.github.binout.pokemongo.domain.iv.IndividualValue;
 import io.github.binout.pokemongo.domain.Pokedex;
 import io.github.binout.pokemongo.domain.Pokemon;
 
 import java.math.BigDecimal;
 
-import static io.github.binout.pokemongo.domain.IndividualValue.max;
+import static io.github.binout.pokemongo.domain.iv.IndividualValue.max;
 
 public class CPCalculator {
 

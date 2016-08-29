@@ -15,7 +15,7 @@
  */
 package io.github.binout.pokemongo.domain.formula;
 
-import io.github.binout.pokemongo.domain.IndividualValue;
+import io.github.binout.pokemongo.domain.iv.IndividualValue;
 import io.github.binout.pokemongo.domain.Pokedex;
 import io.github.binout.pokemongo.domain.Pokemon;
 

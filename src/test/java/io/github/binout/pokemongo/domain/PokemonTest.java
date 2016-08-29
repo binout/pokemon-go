@@ -1,6 +1,8 @@
 package io.github.binout.pokemongo.domain;
 
-import io.github.binout.pokemongo.domain.IndividualValuesGrade.Grade;
+import io.github.binout.pokemongo.domain.iv.IndividualValues;
+import io.github.binout.pokemongo.domain.iv.IndividualValuesGrade.Grade;
+import io.github.binout.pokemongo.domain.rate.Dust;
 import org.testng.annotations.Test;
 
 import java.util.Locale;
@@ -50,6 +52,14 @@ public class PokemonTest {
         assertThat(name.getName(Locale.ENGLISH)).isEqualTo("Eevee");
         assertThat(name.getName(Locale.FRENCH)).isEqualTo("Evoli");
         assertThat(name.getName(Locale.JAPANESE)).isEqualTo("Eievui");
+    }
+
+    @Test
+    public void should_return_all_moves() {
+        Pokemon bulba = new Pokemon(new PokemonId(1), 335, 55);
+
+        assertThat(bulba.quickMoves()).hasSize(2).extracting("name").contains("Tackle", "Vine Whip");
+        assertThat(bulba.chargeMoves()).hasSize(3).extracting("name").contains("Power Whip","Seed Bomb","Sludge Bomb");
     }
 
 }

@@ -13,25 +13,34 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.github.binout.pokemongo.domain;
-
-import io.github.binout.pokemongo.domain.formula.LevelData;
+package io.github.binout.pokemongo.domain.iv;
 
 import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
-public class Dust {
+public class IndividualValue {
+
+    private static final int MAX_IV = 15;
+    private static final int MIN_IV = 0;
 
     private final int value;
 
-    public Dust(int value) {
-        this.value = allValues().filter(d -> d == value).findFirst().orElseThrow(IllegalArgumentException::new);
+    public IndividualValue(int value) {
+        if (value<MIN_IV || value>MAX_IV) {
+            throw new IllegalArgumentException();
+        }
+        this.value = value;
     }
 
     public int value() {
         return value;
     }
 
-    public static IntStream allValues() {
-        return LevelData.allDusts();
+    public static Stream<IndividualValue> range() {
+        return IntStream.range(MIN_IV, MAX_IV+1).mapToObj(IndividualValue::new);
+    }
+
+    public static IndividualValue max() {
+        return new IndividualValue(MAX_IV);
     }
 }

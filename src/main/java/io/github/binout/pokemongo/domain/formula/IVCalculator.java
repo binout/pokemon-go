@@ -16,6 +16,9 @@
 package io.github.binout.pokemongo.domain.formula;
 
 import io.github.binout.pokemongo.domain.*;
+import io.github.binout.pokemongo.domain.iv.IndividualValue;
+import io.github.binout.pokemongo.domain.iv.IndividualValues;
+import io.github.binout.pokemongo.domain.rate.Dust;
 
 import java.util.*;
 import java.util.stream.Collectors;
