@@ -58,7 +58,7 @@ public class Server {
     }
 
     public static void main(String[] args) {
-        new WebServer().start();
+        new Server().start();
     }
 
     private static Locale language(Context context) {
