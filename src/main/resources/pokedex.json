@@ -620,7 +620,7 @@
   "type": ["Normal"],
   "moves" : {
     "quick" : ["Bite","Scratch"],
-    "charge" : []
+    "charge" : ["Body Slam","Dark Pulse","Night Slash"]
   }
  },
  {
@@ -632,7 +632,7 @@
   "type": ["Normal"],
   "moves" : {
     "quick" : ["Feint Attack","Scratch"],
-    "charge" : []
+    "charge" : ["Power Gem","Play Rough","Night Slash"]
   }
  },
  {
@@ -644,7 +644,7 @@
   "type": ["Water"],
   "moves" : {
     "quick" : ["Water Gun","Zen Headbutt"],
-    "charge" : []
+    "charge" : ["Aqua Tail","Cross Chop","Psybeam"]
   }
  },
  {
@@ -656,7 +656,7 @@
   "type": ["Water"],
   "moves" : {
     "quick" : ["Confusion","Water Gun"],
-    "charge" : []
+    "charge" : ["Hydro Pump","Ice Beam","Psychic"]
   }
  },
  {
@@ -668,7 +668,7 @@
   "type": ["Fight"],
   "moves" : {
     "quick" : ["Karate Chop","Scratch"],
-    "charge" : []
+    "charge" : ["Brick Break","Cross Chop","Low Sweep"]
   }
  },
  {
@@ -677,10 +677,10 @@
   "stamina": 130,
   "attack": 178,
   "defense": 150,
-  "type": ["Fight","Karate Chop"],
+  "type": ["Fight"],
   "moves" : {
-    "quick" : ["Low Kick"],
-    "charge" : []
+    "quick" : ["Karate Chop","Low Kick"],
+    "charge" : ["Low Sweep","Cross Chop","Night Slash"]
   }
  },
  {
@@ -692,7 +692,7 @@
   "type": ["Fire"],
   "moves" : {
     "quick" : ["Bite","Ember"],
-    "charge" : []
+    "charge" : ["Body Slam","Flame Wheel","Flamethrower"]
   }
  },
  {
@@ -704,7 +704,7 @@
   "type": ["Fire"],
   "moves" : {
     "quick" : ["Bite","Fire Fang"],
-    "charge" : []
+    "charge" : ["Bulldoze","Fire Blast","Flamethrower"]
   }
  },
  {
@@ -716,7 +716,7 @@
   "type": ["Water"],
   "moves" : {
     "quick" : ["Bubble","Mud Shot"],
-    "charge" : []
+    "charge" : ["Body Slam","Bubble Beam","Mud Bomb"]
   }
  },
  {
@@ -728,7 +728,7 @@
   "type": ["Water"],
   "moves" : {
     "quick" : ["Bubble","Mud Shot"],
-    "charge" : []
+    "charge" : ["Scald","Bubble Beam","Mud Bomb"]
   }
  },
  {
@@ -740,7 +740,7 @@
   "type": ["Fight","Water"],
   "moves" : {
     "quick" : ["Bubble","Mud Shot"],
-    "charge" : []
+    "charge" : ["Hydro Pump","Ice Punch","Submission"]
   }
  },
  {
@@ -752,7 +752,7 @@
   "type": ["Psychic"],
   "moves" : {
     "quick" : ["Zen Headbutt"],
-    "charge" : []
+    "charge" : ["Psyshock","Shadow Ball","Signal Beam"]
   }
  },
  {
@@ -764,7 +764,7 @@
   "type": ["Psychic"],
   "moves" : {
     "quick" : ["Confusion","Psycho Cut"],
-    "charge" : []
+    "charge" : ["Dazzling Gleam","Shadow Ball","Psybeam"]
   }
  },
  {
@@ -776,7 +776,7 @@
   "type": ["Psychic"],
   "moves" : {
     "quick" : ["Confusion","Psycho Cut"],
-    "charge" : []
+    "charge" : ["Dazzling Gleam","Shadow Ball","Psychic"]
   }
  },
  {
@@ -788,7 +788,7 @@
   "type": ["Fight"],
   "moves" : {
     "quick" : ["Karate Chop","Low Kick"],
-    "charge" : []
+    "charge" : ["Brick Break","Cross Chop", "Low Sweep"]
   }
  },
  {
@@ -800,7 +800,7 @@
   "type": ["Fight"],
   "moves" : {
     "quick" : ["Karate Chop","Low Kick"],
-    "charge" : []
+    "charge" : ["Brick Break","Cross Chop", "Submission"]
   }
  },
  {
@@ -812,7 +812,7 @@
   "type": ["Fight"],
   "moves" : {
     "quick" : ["Bullet Punch","Karate Chop"],
-    "charge" : []
+    "charge" : ["Stone Edge","Cross Chop", "Submission"]
   }
  },
  {
@@ -824,7 +824,7 @@
   "type": ["Grass","Poison"],
   "moves" : {
     "quick" : ["Acid","Vine Whip"],
-    "charge" : []
+    "charge" : ["Power Whip","Sludge Bomb", "Wrap"]
   }
  },
  {
@@ -836,7 +836,7 @@
   "type": ["Grass","Poison"],
   "moves" : {
     "quick" : ["Acid","Razor Leaf"],
-    "charge" : []
+    "charge" : ["Power Whip","Sludge Bomb", "Seed Bomb"]
   }
  },
  {
@@ -848,7 +848,7 @@
   "type": ["Grass","Poison"],
   "moves" : {
     "quick" : ["Acid","Razor Leaf"],
-    "charge" : []
+    "charge" : ["Solar Beam","Sludge Bomb", "Leaf Blade"]
   }
  },
  {
@@ -860,7 +860,7 @@
   "type": ["Poison","Water"],
   "moves" : {
     "quick" : ["Bubble","Poison Sting"],
-    "charge" : []
+    "charge" : ["Bubble Beam","Water Pulse", "Wrap"]
   }
  },
  {
@@ -872,7 +872,7 @@
   "type": ["Poison","Water"],
   "moves" : {
     "quick" : ["Acid","Poison Jap"],
-    "charge" : []
+    "charge" : ["Blizzard","Hydro Pump", "Sludge Wave"]
   }
  },
  {
@@ -884,7 +884,7 @@
   "type": ["Ground","Rock"],
   "moves" : {
     "quick" : ["Rock Throw","Tackle"],
-    "charge" : []
+    "charge" : ["Dig","Rock Slide", "Rock Tomb"]
   }
  },
  {
@@ -896,7 +896,7 @@
   "type": ["Ground","Rock"],
   "moves" : {
     "quick" : ["Mud Slap","Rock Throw"],
-    "charge" : []
+    "charge" : ["Dig","Rock Slide", "Stone Edge"]
   }
  },
  {
@@ -908,7 +908,7 @@
   "type": ["Ground","Rock"],
   "moves" : {
     "quick" : ["Mud Slap","Rock Throw"],
-    "charge" : []
+    "charge" : ["Ancient Power","Earthquake", "Stone Edge"]
   }
  },
  {
@@ -920,7 +920,7 @@
   "type": ["Fire"],
   "moves" : {
     "quick" : ["Ember","Tackle"],
-    "charge" : []
+    "charge" : ["Fire Blast","Flame Wheel", "Flame Charge"]
   }
  },
  {
@@ -932,7 +932,7 @@
   "type": ["Fire"],
   "moves" : {
     "quick" : ["Ember","Low Kick"],
-    "charge" : []
+    "charge" : ["Fire Blast","Heat Wave", "Drill Run"]
   }
  },
  {
@@ -944,7 +944,7 @@
   "type": ["Psychic","Water"],
   "moves" : {
     "quick" : ["Confusion","Water Gun"],
-    "charge" : []
+    "charge" : ["Psychic","Psyshock", "Water Pulse"]
   }
  },
  {
@@ -956,7 +956,7 @@
   "type": ["Psychic","Water"],
   "moves" : {
     "quick" : ["Confusion","Water Gun"],
-    "charge" : []
+    "charge" : ["Psychic","Ice Beam", "Water Pulse"]
   }
  },
  {
@@ -968,7 +968,7 @@
   "type": ["Electric","Steel"],
   "moves" : {
     "quick" : ["Spark","Thunder Shock"],
-    "charge" : []
+    "charge" : ["Discharge","Magnet Bomb", "Thunderbolt"]
   }
  },
  {
@@ -980,7 +980,7 @@
   "type": ["Electric","Steel"],
   "moves" : {
     "quick" : ["Spark","Thunder Shock"],
-    "charge" : []
+    "charge" : ["Discharge","Magnet Bomb", "Flash Cannon"]
   }
  },
  {
@@ -992,7 +992,7 @@
   "type": ["Normal","Flying"],
   "moves" : {
     "quick" : ["Cut","Fury Cutter"],
-    "charge" : []
+    "charge" : ["Aerial Ace","Air Cutter", "Leaf Blade"]
   }
  },
  {
@@ -1004,7 +1004,7 @@
   "type": ["Normal","Flying"],
   "moves" : {
     "quick" : ["Peck","Quick Attack"],
-    "charge" : []
+    "charge" : ["Aerial Ace","Drill Peck", "Swift"]
   }
  },
  {
@@ -1016,7 +1016,7 @@
   "type": ["Normal","Flying"],
   "moves" : {
     "quick" : ["Feint Attack","Steel Wing"],
-    "charge" : []
+    "charge" : ["Aerial Ace","Drill Peck", "Air Cutter"]
   }
  },
  {
@@ -1028,7 +1028,7 @@
   "type": ["Water"],
   "moves" : {
     "quick" : ["Ice Shard","Lick"],
-    "charge" : []
+    "charge" : ["Aqua Jet","Aqua Tail", "Icy Wind"]
   }
  },
  {
@@ -1040,7 +1040,7 @@
   "type": ["Ice","Water"],
   "moves" : {
     "quick" : ["Frost Breath","Ice Shard"],
-    "charge" : []
+    "charge" : ["Aqua Jet","Blizzard", "Icy Wind"]
   }
  },
  {
@@ -1052,7 +1052,7 @@
   "type": ["Poison"],
   "moves" : {
     "quick" : ["Mud Slap","Poison Jap"],
-    "charge" : []
+    "charge" : ["Mud Bomb","Sludge", "Sludge Bomb"]
   }
  },
  {
@@ -1061,10 +1061,10 @@
   "stamina": 210,
   "attack": 180,
   "defense": 188,
-  "type": ["Poison","Lick"],
+  "type": ["Poison"],
   "moves" : {
-    "quick" : ["Poison Jap"],
-    "charge" : []
+    "quick" : ["Lick","Poison Jap"],
+    "charge" : ["Dark Pulse","Gunk Shot", "Sludge Wave"]
   }
  },
  {
@@ -1076,7 +1076,7 @@
   "type": ["Water"],
   "moves" : {
     "quick" : ["Ice Shard","Tackle"],
-    "charge" : []
+    "charge" : ["Bubble Beam","Icy Wind", "Water Pulse"]
   }
  },
  {
@@ -1088,7 +1088,7 @@
   "type": ["Ice","Water"],
   "moves" : {
     "quick" : ["Frost Breath","Ice Shard"],
-    "charge" : []
+    "charge" : ["Blizzard","Hydro Pump", "Icy Wind"]
   }
  },
  {
@@ -1099,8 +1099,8 @@
   "defense": 82,
   "type": ["Ghost","Poison"],
   "moves" : {
-    "quick" : ["Lick","Shadow Claw","Sucker Punch"],
-    "charge" : []
+    "quick" : ["Lick","Sucker Punch"],
+    "charge" : ["Dark Pulse","Sludge Bomb", "Ominous Wind"]
   }
  },
  {
@@ -1112,7 +1112,7 @@
   "type": ["Ghost","Poison"],
   "moves" : {
     "quick" : ["Lick","Shadow Claw"],
-    "charge" : []
+    "charge" : ["Dark Pulse","Sludge Bomb", "Shadow Ball"]
   }
  },
  {
@@ -1124,7 +1124,7 @@
   "type": ["Ghost","Poison"],
   "moves" : {
     "quick" : ["Shadow Claw","Sucker Punch"],
-    "charge" : []
+    "charge" : ["Dark Pulse","Sludge Bomb", "Shadow Ball"]
   }
  },
  {
@@ -1136,7 +1136,7 @@
   "type": ["Ground","Rock"],
   "moves" : {
     "quick" : ["Rock Throw","Tackle"],
-    "charge" : []
+    "charge" : ["Iron Head","Rock Slide", "Stone Edge"]
   }
  },
  {
@@ -1148,7 +1148,7 @@
   "type": ["Psychic"],
   "moves" : {
     "quick" : ["Confusion","Pound"],
-    "charge" : []
+    "charge" : ["Psybeam","Psychic", "Psyshock"]
   }
  },
  {
@@ -1160,7 +1160,7 @@
   "type": ["Psychic"],
   "moves" : {
     "quick" : ["Confusion","Zen Headbutt"],
-    "charge" : []
+    "charge" : ["Shadow Ball","Psychic", "Psyshock"]
   }
  },
  {
@@ -1172,7 +1172,7 @@
   "type": ["Water"],
   "moves" : {
     "quick" : ["Bubble","Mud Shot"],
-    "charge" : []
+    "charge" : ["Bubble Beam","Vice Grip", "Water Pulse"]
   }
  },
  {
@@ -1184,7 +1184,7 @@
   "type": ["Water"],
   "moves" : {
     "quick" : ["Metal Claw","Mud Shot"],
-    "charge" : []
+    "charge" : ["X-Scissor","Vice Grip", "Water Pulse"]
   }
  },
  {
@@ -1196,7 +1196,7 @@
   "type": ["Electric"],
   "moves" : {
     "quick" : ["Spark","Tackle"],
-    "charge" : []
+    "charge" : ["Discharge","Signal Beam", "Thunderbolt"]
   }
  },
  {
@@ -1208,7 +1208,7 @@
   "type": ["Electric"],
   "moves" : {
     "quick" : ["Spark","Tackle"],
-    "charge" : []
+    "charge" : ["Discharge","Hyper Beam", "Thunderbolt"]
   }
  },
  {
@@ -1220,7 +1220,7 @@
   "type": ["Grass","Psychic"],
   "moves" : {
     "quick" : ["Confusion"],
-    "charge" : []
+    "charge" : ["Ancient Power","Psychic", "Seed Bomb"]
   }
  },
  {
@@ -1232,7 +1232,7 @@
   "type": ["Grass","Psychic"],
   "moves" : {
     "quick" : ["Confusion","Zen Headbutt"],
-    "charge" : []
+    "charge" : ["Solar Beam","Psychic", "Seed Bomb"]
   }
  },
  {
@@ -1244,7 +1244,7 @@
   "type": ["Ground"],
   "moves" : {
     "quick" : ["Mud Slap","Rock Smash"],
-    "charge" : []
+    "charge" : ["Bone Club","Bulldoze", "Dig"]
   }
  },
  {
@@ -1256,7 +1256,7 @@
   "type": ["Ground"],
   "moves" : {
     "quick" : ["Mud Slap","Rock Smash"],
-    "charge" : []
+    "charge" : ["Bone Club","Earthquake", "Dig"]
   }
  },
  {
@@ -1268,7 +1268,7 @@
   "type": ["Fight"],
   "moves" : {
     "quick" : ["Low Kick","Rock Smash"],
-    "charge" : []
+    "charge" : ["Brick Break","Low Sweep", "Stone Edge"]
   }
  },
  {
@@ -1280,7 +1280,7 @@
   "type": ["Fight"],
   "moves" : {
     "quick" : ["Bullet Punch","Rock Smash"],
-    "charge" : []
+    "charge" : ["Brick Break","Fire Punch", "Ice Punch","Thunder Punch"]
   }
  },
  {
@@ -1292,7 +1292,7 @@
   "type": ["Normal"],
   "moves" : {
     "quick" : ["Lick","Zen Headbutt"],
-    "charge" : []
+    "charge" : ["Hyper Beam","Power Whip", "Stomp"]
   }
  },
  {
@@ -1304,7 +1304,7 @@
   "type": ["Poison"],
   "moves" : {
     "quick" : ["Tackle"],
-    "charge" : []
+    "charge" : ["Dark Pulse","Sludge", "Sludge Bomb"]
   }
  },
  {
@@ -1316,7 +1316,7 @@
   "type": ["Poison"],
   "moves" : {
     "quick" : ["Tackle"],
-    "charge" : []
+    "charge" : ["Dark Pulse","Shadow Ball", "Sludge Bomb"]
   }
  },
  {
@@ -1328,7 +1328,7 @@
   "type": ["Ground","Rock"],
   "moves" : {
     "quick" : ["Mud Slap","Rock Smash"],
-    "charge" : []
+    "charge" : ["Bulldoze","Horn Attack", "Stomp"]
   }
  },
  {
@@ -1340,7 +1340,7 @@
   "type": ["Ground","Rock"],
   "moves" : {
     "quick" : ["Mud Slap","Rock Smash"],
-    "charge" : []
+    "charge" : ["Earthquake","Megahorn", "Stone Edge"]
   }
  },
  {
@@ -1352,7 +1352,7 @@
   "type": ["Normal"],
   "moves" : {
     "quick" : ["Pound","Zen Headbutt"],
-    "charge" : []
+    "charge" : ["Dazzling Gleam","Hyper Beam", "Psychic"]
   }
  },
  {
@@ -1364,7 +1364,7 @@
   "type": ["Grass"],
   "moves" : {
     "quick" : ["Vine Whip"],
-    "charge" : []
+    "charge" : ["Power Whip","Solar Beam", "Sludge Bomb"]
   }
  },
  {
@@ -1376,7 +1376,7 @@
   "type": ["Normal"],
   "moves" : {
     "quick" : ["Low Kick","Mud Slap"],
-    "charge" : []
+    "charge" : ["Brick Break","Earthquake", "Stomp"]
   }
  },
  {
@@ -1388,7 +1388,7 @@
   "type": ["Water"],
   "moves" : {
     "quick" : ["Bubble","Water Gun"],
-    "charge" : []
+    "charge" : ["Bubble Beam","Dragon Pulse", "Flash Cannon"]
   }
  },
  {
@@ -1400,7 +1400,7 @@
   "type": ["Water"],
   "moves" : {
     "quick" : ["Dragon Breath","Water Gun"],
-    "charge" : []
+    "charge" : ["Blizzard","Dragon Pulse", "Hydro Pump"]
   }
  },
  {
@@ -1412,7 +1412,7 @@
   "type": ["Water"],
   "moves" : {
     "quick" : ["Mud Shot","Peck"],
-    "charge" : []
+    "charge" : ["Aqua Tail","Horn Attack", "Water Pulse"]
   }
  },
  {
@@ -1424,7 +1424,7 @@
   "type": ["Water"],
   "moves" : {
     "quick" : ["Peck","Poison Jap"],
-    "charge" : []
+    "charge" : ["Icy Wind","Megahorn", "Drill Run"]
   }
  },
  {
@@ -1436,7 +1436,7 @@
   "type": ["Water"],
   "moves" : {
     "quick" : ["Tackle","Water Gun"],
-    "charge" : []
+    "charge" : ["Bubble Beam","Power Gem", "Swift"]
   }
  },
  {
@@ -1448,7 +1448,7 @@
   "type": ["Psychic","Water"],
   "moves" : {
     "quick" : ["Tackle","Water Gun"],
-    "charge" : []
+    "charge" : ["Hydro Pump","Power Gem", "Psychic"]
   }
  },
  {
@@ -1460,7 +1460,7 @@
   "type": ["Fairy","Psychic"],
   "moves" : {
     "quick" : ["Confusion","Zen Headbutt"],
-    "charge" : []
+    "charge" : ["Psybeam","Psychic", "Shadow Ball"]
   }
  },
  {
@@ -1472,7 +1472,7 @@
   "type": ["Bug","Flying"],
   "moves" : {
     "quick" : ["Fury Cutter","Steel Wing"],
-    "charge" : []
+    "charge" : ["Bug Buzz","Night Slash", "X-Scissor"]
   }
  },
  {
@@ -1484,7 +1484,7 @@
   "type": ["Ice","Psychic"],
   "moves" : {
     "quick" : ["Frost Breath","Pound"],
-    "charge" : []
+    "charge" : ["Draining Kiss","Ice Punch", "Psyshock"]
   }
  },
  {
@@ -1496,7 +1496,7 @@
   "type": ["Electric"],
   "moves" : {
     "quick" : ["Low Kick","Thunder Shock"],
-    "charge" : []
+    "charge" : ["Thunder","Thunder Punch", "Thunderbolt"]
   }
  },
  {
@@ -1508,7 +1508,7 @@
   "type": ["Fire"],
   "moves" : {
     "quick" : ["Ember","Karate Chop"],
-    "charge" : []
+    "charge" : ["Fire Blast","Fire Punch", "Flamethrower"]
   }
  },
  {
@@ -1520,7 +1520,7 @@
   "type": ["Bug"],
   "moves" : {
     "quick" : ["Fury Cutter","Rock Smash"],
-    "charge" : []
+    "charge" : ["Submission","Vice Grip", "X-Scissor"]
   }
  },
  {
@@ -1532,7 +1532,7 @@
   "type": ["Normal"],
   "moves" : {
     "quick" : ["Tackle","Zen Headbutt"],
-    "charge" : []
+    "charge" : ["Earthquake","Horn Attack", "Iron Head"]
   }
  },
  {
@@ -1544,7 +1544,7 @@
   "type": ["Water"],
   "moves" : {
     "quick" : ["Splash"],
-    "charge" : []
+    "charge" : ["Struggle"]
   }
  },
  {
@@ -1556,7 +1556,7 @@
   "type": ["Flying","Water"],
   "moves" : {
     "quick" : ["Bite"],
-    "charge" : []
+    "charge" : ["Dragon Pulse","Hydro Pump", "Twister"]
   }
  },
  {
@@ -1568,7 +1568,7 @@
   "type": ["Ice","Water"],
   "moves" : {
     "quick" : ["Frost Breath","Ice Shard"],
-    "charge" : []
+    "charge" : ["Dragon Pulse","Ice Beam", "Blizzard"]
   }
  },
  {
@@ -1580,7 +1580,7 @@
   "type": ["Normal"],
   "moves" : {
     "quick" : ["Pound"],
-    "charge" : []
+    "charge" : ["Struggle"]
   }
  },
  {
@@ -1592,7 +1592,7 @@
   "type": ["Normal"],
   "moves" : {
     "quick" : ["Quick Attack","Tackle"],
-    "charge" : []
+    "charge" : ["Body Slam","Dig", "Swift"]
   }
  },
  {
@@ -1604,7 +1604,7 @@
   "type": ["Water"],
   "moves" : {
     "quick" : ["Water Gun"],
-    "charge" : []
+    "charge" : ["Aqua Tail","Hydro Pump", "Water Pulse"]
   }
  },
  {
@@ -1616,7 +1616,7 @@
   "type": ["Electric"],
   "moves" : {
     "quick" : ["Thunder Shock"],
-    "charge" : []
+    "charge" : ["Discharge","Thunder", "Thunderbolt"]
   }
  },
  {
@@ -1628,7 +1628,7 @@
   "type": ["Fire"],
   "moves" : {
     "quick" : ["Ember"],
-    "charge" : []
+    "charge" : ["Fire Blast","Flamethrower", "Heat Wave"]
   }
  },
  {
@@ -1640,7 +1640,7 @@
   "type": ["Normal"],
   "moves" : {
     "quick" : ["Tackle","Zen Headbutt"],
-    "charge" : []
+    "charge" : ["Discharge","Psybeam", "Signal Beam"]
   }
  },
  {
@@ -1652,7 +1652,7 @@
   "type": ["Rock","Water"],
   "moves" : {
     "quick" : ["Mud Shot","Water Gun"],
-    "charge" : []
+    "charge" : ["Ancient Power","Rock Tomb", "Brine"]
   }
  },
  {
@@ -1664,7 +1664,7 @@
   "type": ["Rock","Water"],
   "moves" : {
     "quick" : ["Mud Shot","Water Gun"],
-    "charge" : []
+    "charge" : ["Ancient Power","Rock Slide", "Hydro Pump"]
   }
  },
  {
@@ -1675,8 +1675,8 @@
   "defense": 142,
   "type": ["Rock","Water"],
   "moves" : {
-    "quick" : ["Fury Cutter","Mud Shot","Scratch"],
-    "charge" : []
+    "quick" : ["Mud Shot","Scratch"],
+    "charge" : ["Ancient Power","Rock Tomb", "Aqua Jet"]
   }
  },
  {
@@ -1687,8 +1687,8 @@
   "defense": 190,
   "type": ["Rock","Water"],
   "moves" : {
-    "quick" : ["Mud Shot"],
-    "charge" : []
+    "quick" : ["Mud Shot","Fury Cutter"],
+    "charge" : ["Ancient Power","Stone Edge", "Water Pulse"]
   }
  },
  {
@@ -1700,7 +1700,7 @@
   "type": ["Flying","Rock"],
   "moves" : {
     "quick" : ["Bite","Steel Wing"],
-    "charge" : []
+    "charge" : ["Ancient Power","Hyper Beam", "Iron Head"]
   }
  },
  {
@@ -1712,7 +1712,7 @@
   "type": ["Normal"],
   "moves" : {
     "quick" : ["Lick","Zen Headbutt"],
-    "charge" : []
+    "charge" : ["Body Slam","Hyper Beam", "Earthquake"]
   }
  },
  {
@@ -1724,7 +1724,7 @@
   "type": ["Flying","Ice"],
   "moves" : {
     "quick" : ["Frost Breath"],
-    "charge" : []
+    "charge" : ["Blizzard","Ice Beam", "Icy Wind"]
   }
  },
  {
@@ -1736,7 +1736,7 @@
   "type": ["Electric","Flying"],
   "moves" : {
     "quick" : ["Thunder Shock"],
-    "charge" : []
+    "charge" : ["Discharge","Thunder", "Thunderbolt"]
   }
  },
  {
@@ -1748,7 +1748,7 @@
   "type": ["Fire","Flying"],
   "moves" : {
     "quick" : ["Ember"],
-    "charge" : []
+    "charge" : ["Fire Blast","Flamethrower", "Heat Wave"]
   }
  },
  {
@@ -1759,8 +1759,8 @@
   "defense": 110,
   "type": ["Dragon"],
   "moves" : {
-    "quick" : ["Dragon Breath"],
-    "charge" : []
+    "quick" : ["Bite","Dragon Breath"],
+    "charge" : ["Aqua Tail","Twister", "Wrap"]
   }
  },
  {
@@ -1771,8 +1771,8 @@
   "defense": 152,
   "type": ["Dragon"],
   "moves" : {
-    "quick" : ["Dragon Breath"],
-    "charge" : []
+    "quick" : ["Dragon Breath","Steel Wing"],
+    "charge" : ["Aqua Tail","Dragon Pulse", "Wrap"]
   }
  },
  {
@@ -1784,7 +1784,7 @@
   "type": ["Dragon","Flying"],
   "moves" : {
     "quick" : ["Dragon Breath","Steel Wing"],
-    "charge" : []
+    "charge" : ["Dragon Claw","Dragon Pulse", "Hyper Beam"]
   }
  },
  {
@@ -1796,7 +1796,7 @@
   "type": ["Psychic"],
   "moves" : {
     "quick" : ["Confusion","Psycho Cut"],
-    "charge" : []
+    "charge" : ["Psychic","Shadow Ball", "Hyper Beam"]
   }
  },
  {
@@ -1808,7 +1808,7 @@
   "type": ["Psychic"],
   "moves" : {
     "quick" : ["Pound"],
-    "charge" : []
+    "charge" : ["Blizzard","Dragon Pulse", "Earthquake", "Fire Blast","Hyper Beam", "Psychic", "Solar Beam", "Thunder"]
   }
  }
 ]
