@@ -18,7 +18,11 @@ package io.github.binout.pokemongo.domain;
 import io.github.binout.pokemongo.domain.formula.CPCalculator;
 import io.github.binout.pokemongo.domain.formula.HPCalculator;
 import io.github.binout.pokemongo.domain.formula.IVCalculator;
+import io.github.binout.pokemongo.domain.iv.IndividualValues;
+import io.github.binout.pokemongo.domain.move.PokemonMove;
+import io.github.binout.pokemongo.domain.rate.Dust;
 
+import java.util.List;
 import java.util.Map;
 
 import static java.util.Optional.ofNullable;
@@ -68,4 +72,11 @@ public class Pokemon {
         return (int) new HPCalculator(Pokedex.get()).computeMax(this);
     }
 
+    public List<PokemonMove.QuickMove> quickMoves() {
+        return Pokedex.get().getQuickMovesOf(id);
+    }
+
+    public List<PokemonMove.ChargeMove> chargeMoves() {
+        return Pokedex.get().getChargeMovesOf(id);
+    }
 }

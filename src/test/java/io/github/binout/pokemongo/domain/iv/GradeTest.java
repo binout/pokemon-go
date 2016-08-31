@@ -1,5 +1,8 @@
-package io.github.binout.pokemongo.domain;
+package io.github.binout.pokemongo.domain.iv;
 
+import io.github.binout.pokemongo.domain.PokemonName;
+import io.github.binout.pokemongo.domain.Trainer;
+import io.github.binout.pokemongo.domain.iv.IndividualValuesGrade;
 import org.testng.annotations.Test;
 
 import java.util.Locale;

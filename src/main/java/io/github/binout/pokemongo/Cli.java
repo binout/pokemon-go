@@ -16,6 +16,8 @@
 package io.github.binout.pokemongo;
 
 import io.github.binout.pokemongo.domain.*;
+import io.github.binout.pokemongo.domain.rate.Dust;
+import io.github.binout.pokemongo.domain.rate.PokemonRate;
 
 public class Cli {
 

@@ -16,6 +16,10 @@
 package io.github.binout.pokemongo;
 
 import io.github.binout.pokemongo.domain.*;
+import io.github.binout.pokemongo.domain.iv.IndividualValues;
+import io.github.binout.pokemongo.domain.move.PokemonMove;
+import io.github.binout.pokemongo.domain.rate.Dust;
+import io.github.binout.pokemongo.domain.rate.PokemonRate;
 import net.codestory.http.Context;
 import net.codestory.http.WebServer;
 import net.codestory.http.payload.Payload;
@@ -30,13 +34,31 @@ import static java.util.Optional.ofNullable;
 
 public class Server {
 
+    private final WebServer webServer;
+
+    public Server() {
+        webServer = new WebServer().configure(routes -> {
+            routes.url("/pokemon-rates").post(context -> computeRate(language(context), context.extract(RestPokemon.class)));
+            routes.url("/dusts").get(context -> dusts());
+            routes.url("/pokedex").get(context -> pokedex(language(context)));
+        });
+    }
+
+    public void start() {
+        webServer.start();
+    }
+
+    public void stop() {
+        webServer.stop();
+    }
+
+    public int startOnRandomPort() {
+        webServer.startOnRandomPort();
+        return webServer.port();
+    }
+
     public static void main(String[] args) {
-        new WebServer().configure(routes -> {
-                    routes.url("/pokemon-rates").post(context -> computeRate(language(context), context.extract(RestPokemon.class)));
-                    routes.url("/dusts").get(context -> dusts());
-                    routes.url("/pokedex").get(context -> pokedex(language(context)));
-                }
-        ).start();
+        new Server().start();
     }
 
     private static Locale language(Context context) {
@@ -77,10 +99,18 @@ public class Server {
         rate.setDust(pokemonRate.dust().value());
         rate.setMaxCp(pokemonRate.pokemon().maxCp());
         rate.setMaxHp(pokemonRate.pokemon().maxHp());
-        pokemonRate.ivsByLevel().forEach((level, iv) -> {
-            rate.addIv(convertToRestModel(level, iv, locale, team, name));
-        });
+        pokemonRate.ivsByLevel().forEach((level, iv) -> rate.addIv(convertToRestModel(level, iv, locale, team, name)));
+        pokemonRate.pokemon().quickMoves().forEach(q -> rate.addQuickMove(convertToRestModel(q)));
+        pokemonRate.pokemon().chargeMoves().forEach(c -> rate.addChargeMove(convertToRestModel(c)));
         return rate;
+    }
+
+    private static RestMove convertToRestModel(PokemonMove move) {
+        RestMove restMove = new RestMove();
+        restMove.setName(move.name());
+        restMove.setAttack(move.attack());
+        restMove.setDps(move.dps());
+        return restMove;
     }
 
     private static RestIv convertToRestModel(Double level, IndividualValues iv, Locale locale, Trainer.Team team, PokemonName name) {
@@ -122,6 +152,8 @@ public class Server {
         private int maxCp;
         private int maxHp;
         private List<RestIv> ivs = new ArrayList<>();
+        private List<RestMove> quickMoves = new ArrayList<>();
+        private List<RestMove> chargeMoves = new ArrayList<>();
 
         public String getName() {
             return name;
@@ -165,6 +197,60 @@ public class Server {
 
         public void setDate(String date) {
             this.date = date;
+        }
+
+        public void addQuickMove(RestMove restMove) {
+            quickMoves.add(restMove);
+        }
+
+        public List<RestMove> getQuickMoves() {
+            return quickMoves;
+        }
+
+        public void setQuickMoves(List<RestMove> quickMoves) {
+            this.quickMoves = quickMoves;
+        }
+
+        public void addChargeMove(RestMove restMove) {
+            chargeMoves.add(restMove);
+        }
+
+        public List<RestMove> getChargeMoves() {
+            return chargeMoves;
+        }
+
+        public void setChargeMoves(List<RestMove> chargeMoves) {
+            this.chargeMoves = chargeMoves;
+        }
+    }
+
+    private static class RestMove {
+        private String name;
+        private int attack;
+        private double dps;
+
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+
+        public int getAttack() {
+            return attack;
+        }
+
+        public void setAttack(int attack) {
+            this.attack = attack;
+        }
+
+        public double getDps() {
+            return dps;
+        }
+
+        public void setDps(double dps) {
+            this.dps = dps;
         }
     }
 

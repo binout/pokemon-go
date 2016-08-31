@@ -13,7 +13,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.github.binout.pokemongo.domain;
+package io.github.binout.pokemongo.domain.iv;
+
+import io.github.binout.pokemongo.domain.PokemonName;
+import io.github.binout.pokemongo.domain.Trainer;
 
 import java.io.UnsupportedEncodingException;
 import java.math.BigDecimal;

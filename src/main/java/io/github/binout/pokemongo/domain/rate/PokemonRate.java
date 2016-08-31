@@ -13,7 +13,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.github.binout.pokemongo.domain;
+package io.github.binout.pokemongo.domain.rate;
+
+import io.github.binout.pokemongo.domain.iv.IndividualValues;
+import io.github.binout.pokemongo.domain.Pokemon;
+import io.github.binout.pokemongo.domain.Trainer;
 
 import java.time.LocalDate;
 import java.util.Map;

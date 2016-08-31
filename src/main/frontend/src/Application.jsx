@@ -79,7 +79,7 @@ const Application = React.createClass({
     render() {
         return (
             <div className="App container">
-                <PageHeader>Pokemon GO<small> IV Calculator</small></PageHeader>
+                <PageHeader>Pokemon GO<small> Stats Sheet</small></PageHeader>
 
                 <Form horizontal onSubmit={this.handleSubmit}>
                     <FormGroup controlId="formTrainer" bsSize="sm">
