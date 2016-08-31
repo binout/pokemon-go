@@ -34,13 +34,31 @@ import static java.util.Optional.ofNullable;
 
 public class Server {
 
+    private final WebServer webServer;
+
+    public Server() {
+        webServer = new WebServer().configure(routes -> {
+            routes.url("/pokemon-rates").post(context -> computeRate(language(context), context.extract(RestPokemon.class)));
+            routes.url("/dusts").get(context -> dusts());
+            routes.url("/pokedex").get(context -> pokedex(language(context)));
+        });
+    }
+
+    public void start() {
+        webServer.start();
+    }
+
+    public void stop() {
+        webServer.stop();
+    }
+
+    public int startOnRandomPort() {
+        webServer.startOnRandomPort();
+        return webServer.port();
+    }
+
     public static void main(String[] args) {
-        new WebServer().configure(routes -> {
-                    routes.url("/pokemon-rates").post(context -> computeRate(language(context), context.extract(RestPokemon.class)));
-                    routes.url("/dusts").get(context -> dusts());
-                    routes.url("/pokedex").get(context -> pokedex(language(context)));
-                }
-        ).start();
+        new WebServer().start();
     }
 
     private static Locale language(Context context) {
